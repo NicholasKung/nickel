@@ -5,4 +5,11 @@ Rails.application.routes.draw do
 
   get "/", to: 'homes#index'
   get "/creditcards", to: 'homes#index'
+
+  namespace :api do
+    namespace :v1 do
+      resources :cards, only: [:index] do
+      end
+    end
+  end
 end
