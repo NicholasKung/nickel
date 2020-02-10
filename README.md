@@ -22,4 +22,6 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
-# kingpin
+# Nickel
+
+[![Codeship Status for NicholasKung/nickel](https://app.codeship.com/projects/cf552360-2e4b-0138-ef08-6eb55da84966/status?branch=master)](https://app.codeship.com/projects/384814)
