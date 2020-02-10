@@ -7,7 +7,7 @@ export const App = (props) => {
     <div>
       <BrowserRouter>
         <Switch>
-          <Route exact path="/" component={CardIndex} />
+          <Route exact path="/" component={CardIndex}/>
         </Switch>
       </BrowserRouter>
     </div>
