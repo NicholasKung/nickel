@@ -1,12 +1,12 @@
 import React from 'react'
 import Enzyme, { mount } from 'enzyme'
 import Adapter from "enzyme-adapter-react-16"
-import { BrowserRouter, Link } from "react-router-dom"
+import { BrowserRouter } from "react-router-dom"
 Enzyme.configure({ adapter: new Adapter() })
 
-import CardTile from "./CardTile"
+import CardShow from "./CardShow"
 
-describe("CardTile", () => {
+describe("CardShow", () => {
   let wrapper
   let cardData
 
@@ -25,7 +25,7 @@ describe("CardTile", () => {
 
     wrapper = mount(
       <BrowserRouter>
-        <CardTile
+        <CardShow
           cardData={cardData}
         />
         </BrowserRouter>
@@ -37,9 +37,13 @@ describe("CardTile", () => {
        src: "https://www.mastercard.us/en-us/consumers/find-card-products/credit-cards/mastercard/_jcr_content/contentpar/herolight_1/image.adaptive.319.low.jpg/1487872342914.jpg"})
   });
 
-  it("should contain a link that wraps the img tab to take User to show page", () => {
-   expect(wrapper.find(Link).props().to).toBe("/cards/1")
- })
+  it("should render a p tag containing the text received via props", () =>{
+     expect(wrapper.find('p').text()).toBe("Expiration Date: August 2024 Limit: $3000 Annual Fee: $100")
+  });
+
+  it("should render a h3 tag containing the text received via props", () =>{
+    expect(wrapper.find('h3').text()).toBe("Test Description")
+  });
 
   it("should render a h1 tag containing the text received via props", () =>{
     expect(wrapper.find('h1').text()).toBe("Test Credit Card")
