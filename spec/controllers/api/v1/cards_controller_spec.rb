@@ -70,4 +70,52 @@ RSpec.describe Api::V1::CardsController, type: :controller do
 
     end
   end
+
+  describe "POST#create" do
+    context 'when a successful request is made with proper params' do
+      let!(:new_card) {
+        { number:"1234",
+          limit:1000,
+          fee:50,
+          name:"Test Name",
+          description:"Test Description",
+          date:"12/12",
+          supplier:"Visa",
+          image:"img",
+          user: user
+        }
+      }
+
+      it "creates a new credit card" do
+        sign_in user
+        expect{ post :create, params: new_card, format: :json }.to change { Card.count }.from(1).to(2)
+      end
+
+      it "returns the new album as JSON" do
+
+        sign_in user
+        post :create, params: new_card, format: :json
+        response_body = JSON.parse(response.body)
+
+        expect(response_body["card"]["number"]).to eq "1234"
+        expect(response_body["card"]["limit"]).to eq 1000
+        expect(response_body["card"]["fee"]).to eq 50
+        expect(response_body["card"]["name"]).to eq "Test Name"
+        expect(response_body["card"]["description"]).to eq "Test Description"
+        expect(response_body["card"]["date"]).to eq "12/12"
+        expect(response_body["card"]["supplier"]).to eq "Visa"
+        expect(response_body["card"]["image"]).to eq "img"
+      end
+    end
+
+    context 'when a malformed request is made' do
+      let!(:bad_card) { { description:"Test Description"} }
+      it "does not persist data to database" do
+        prev_count = Card.count
+        post :create, params: bad_card, format: :json
+        new_count = Card.count
+        expect(new_count).to eq prev_count
+      end
+    end
+  end
 end
