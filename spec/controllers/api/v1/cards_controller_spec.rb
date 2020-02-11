@@ -9,6 +9,7 @@ RSpec.describe Api::V1::CardsController, type: :controller do
     email:"email6@email.com",
     password:"123456"
     ) }
+
   let!(:first_card) { Card.create(
     number: "1234",
     limit: 1000,
@@ -23,8 +24,11 @@ RSpec.describe Api::V1::CardsController, type: :controller do
 
   describe "GET#index" do
 
-    it "should return a list of all the credit cards" do
+    it "should return a list of all of the user's credit cards" do
+      sign_in user
+
       get :index
+
       returned_json = JSON.parse(response.body)
       expect(response.status).to eq 200
       expect(response.content_type).to eq("application/json")
@@ -45,9 +49,11 @@ RSpec.describe Api::V1::CardsController, type: :controller do
 
   describe "GET#show" do
 
-    it "should return individual credit card information" do
+    it "should return individuals credit card information" do
+      sign_in user
 
       get :show, params: {id: first_card.id}
+
       returned_json = JSON.parse(response.body)
 
       expect(response.status).to eq 200
