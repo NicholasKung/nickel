@@ -5,7 +5,6 @@ const CardIndex = (props) => {
   const [cards, setCards] = useState([])
 
   useEffect(() =>{
-    debugger
     fetch('/api/v1/cards.json')
     .then(response => {
       if(response.ok) {
@@ -16,7 +15,6 @@ const CardIndex = (props) => {
     })
     .then(response => response.json())
     .then(body => {
-      debugger
       setCards(body)
     })
     .catch(error => {
@@ -35,8 +33,6 @@ const CardIndex = (props) => {
       </div>
     )
   })
-
-
 
   return(
     <div>
