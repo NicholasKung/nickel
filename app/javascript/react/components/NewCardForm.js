@@ -1,7 +1,31 @@
 import React, { useState } from 'react'
+import TextField from '@material-ui/core/TextField';
+import Button from '@material-ui/core/Button';
+import { makeStyles } from '@material-ui/core/styles';
+
+const useStyles = makeStyles(theme => ({
+  root: {
+    '& .MuiTextField-root': {
+      margin: theme.spacing(1),
+      width: 300,
+    },
+  },
+}));
 
 const NewCardForm = (props) => {
 
+  const [open, setOpen] = React.useState(false);
+
+
+  const handleClose = (event, reason) => {
+    if (reason === 'clickaway') {
+      return;
+    }
+
+    setOpen(false);
+  };
+
+  const classes = useStyles();
   const [newCard, setNewCard] = useState({
     number: "",
     limit: "",
@@ -24,6 +48,7 @@ const NewCardForm = (props) => {
     event.preventDefault()
     let formPayLoad = newCard
     props.onSubmit(formPayLoad)
+    setOpen(true)
     setNewCard({
       number: "",
       limit: "",
@@ -38,107 +63,78 @@ const NewCardForm = (props) => {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
+    <div>
+      <form className={classes.root} onSubmit={handleSubmit} noValidate autoComplete="off">
 
-      <div className="columns large-6">
-        <label>
-          Credit Card Number:
-          <input
-            name="number"
-            id="number"
-            type="text"
-            value={newCard.number}
-            onChange={handleChange}
-            maxLength="4"
-          />
-        </label>
+        <TextField
+          id="number"
+          name="number"
+          label="Credit Card Number"
+          value={newCard.number}
+          onChange={handleChange}
+        />
 
-        <label>
-          Credit Card Limit:
-          <input
-            name="limit"
-            id="limit"
-            type="text"
-            value={newCard.limit}
-            onChange={handleChange}
-          />
-        </label>
+        <TextField
+          id="limit"
+          name="limit"
+          label="Credit Card Limit"
+          value={newCard.limit}
+          onChange={handleChange}
+        />
 
-        <label>
-          Credit Card Annual Fee:
-          <input
-            name="fee"
-            id="fee"
-            type="text"
-            value={newCard.fee}
-            onChange={handleChange}
-          />
-        </label>
+        <TextField
+          id="fee"
+          name="fee"
+          label="Credit Card Fee"
+          value={newCard.fee}
+          onChange={handleChange}
+        />
 
-        <label>
-          Credit Card Name:
-          <input
-            name="name"
-            id="name"
-            type="text"
-            value={newCard.name}
-            onChange={handleChange}
-          />
-        </label>
-      </div>
+        <TextField
+          id="name"
+          name="name"
+          label="Credit Card Name"
+          value={newCard.name}
+          onChange={handleChange}
+        />
 
-      <div className="columns large-6">
-        <label>
-          Credit Card Description:
-          <input
-            name="description"
-            id="description"
-            type="text"
-            value={newCard.description}
-            onChange={handleChange}
-            placeholder="Description"
-          />
-        </label>
+        <TextField
+          id="description"
+          name="description"
+          label="Credit Card Description"
+          value={newCard.description}
+          onChange={handleChange}
+        />
 
-        <label>
-          Credit Card Expiration Date:
-          <input
-            name="date"
-            id="date"
-            type="tel"
-            value={newCard.date}
-            onChange={handleChange}
-            placeholder="MM/YY"
-          />
-        </label>
+        <TextField
+          id="date"
+          name="date"
+          label="Credit Card Date"
+          value={newCard.date}
+          onChange={handleChange}
+        />
 
-        <label>
-          Credit Card Supplier:
-          <input
-            name="supplier"
-            id="supplier"
-            type="text"
-            value={newCard.supplier}
-            onChange={handleChange}
-          />
-        </label>
+        <TextField
+          id="supplier"
+          name="supplier"
+          label="Credit Card Supplier"
+          value={newCard.supplier}
+          onChange={handleChange}
+        />
 
-        <label>
-          Credit Card Image:
-          <input
-            name="image"
-            id="image"
-            type="text"
-            value={newCard.image}
-            onChange={handleChange}
-          />
-        </label>
-      </div>
-      
-      <div>
-        <input className="button" type="submit" value="Add New Card"/>
-      </div>
-    </form>
+        <TextField
+          id="image"
+          name="image"
+          label="Credit Card Image"
+          value={newCard.image}
+          onChange={handleChange}
+        />
+        <Button className = "button" variant="contained" color="secondary" type="submit">
+          Add new card
+        </Button>
+      </form>
+    </div>
+
   )
 }
 

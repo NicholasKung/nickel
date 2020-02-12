@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Redirect } from 'react-router-dom'
 import CardShow from './CardShow'
+import Footer from './Footer'
 
 const CardShowContainer = (props) => {
   const [ card, setCard ] = useState({})
@@ -60,6 +61,8 @@ const CardShowContainer = (props) => {
       <CardShow
         cardData={card}
         deleteCard={deleteCard}
+      />
+      <Footer
       />
     </div>
   )
