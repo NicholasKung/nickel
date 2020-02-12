@@ -26,7 +26,7 @@ const CardIndex = (props) => {
       setCards(body)
     })
     .catch(error => {
-      console.log(`Error fetching albums: ${error.message}`)
+      console.log(`Error fetching cards: ${error.message}`)
     })
   }, [])
 
@@ -34,7 +34,6 @@ const CardIndex = (props) => {
 
     return(
       <div>
-
         <CardTile
           key={card.key}
           cardData={card}
