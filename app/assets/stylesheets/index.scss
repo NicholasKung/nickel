@@ -4,6 +4,10 @@
 
 .card-tile {
   text-align: center;
+  margin: 10px auto;
+  border: 5px solid black;
+  border-radius: 10px;
+  width: 40%;
 }
 
 form {
@@ -14,8 +18,13 @@ form {
 .button {
   display: block;
   margin: auto;
+  width: 20%
 }
 
 .form-button {
   margin: 0 auto;
+}
+
+img {
+  margin-bottom: 10px;
 }
