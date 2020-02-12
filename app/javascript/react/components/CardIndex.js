@@ -1,6 +1,13 @@
 import React, {useState, useEffect} from 'react'
 import { Link } from "react-router-dom"
+import Button from '@material-ui/core/Button';
 import CardTile from './CardTile.js'
+import Footer from './Footer'
+import CssBaseline from '@material-ui/core/CssBaseline';
+import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/Toolbar';
+import Typography from '@material-ui/core/Typography';
+
 
 const CardIndex = (props) => {
   const [cards, setCards] = useState([])
@@ -38,13 +45,22 @@ const CardIndex = (props) => {
 
   return(
     <div>
-      <h2>Your Credit Cards</h2>
+        <AppBar color = "secondary" position="relative">
+          <Toolbar>
+            <Typography variant="h6" color="inherit" noWrap>
+              Your credit cards
+            </Typography>
+          </Toolbar>
+        </AppBar>
       {cardTiles}
-      <Link
-        to={`/cards/new`}
-        className = "button">
+      <Button
+        href={`/cards/new`}
+        variant="contained"
+        color="primary"
+        className = "add-button">
           Add a New Credit Card
-      </Link>
+      </Button>
+      <Footer />
     </div>
   )
 }
