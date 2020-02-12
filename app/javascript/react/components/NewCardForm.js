@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
+import _ from "lodash"
+import ErrorsList from "./ErrorsList"
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -13,20 +15,9 @@ const useStyles = makeStyles(theme => ({
 }));
 
 const NewCardForm = (props) => {
-
-  const [open, setOpen] = React.useState(false);
-
-
-  const handleClose = (event, reason) => {
-    if (reason === 'clickaway') {
-      return;
-    }
-
-    setOpen(false);
-  };
-
   const classes = useStyles();
-  const [newCard, setNewCard] = useState({
+  const [ errors, setErrors ] = useState({})
+  const [ newCard, setNewCard ] = useState({
     number: "",
     limit: "",
     fee: "",
@@ -44,28 +35,43 @@ const NewCardForm = (props) => {
     })
   }
 
+  const validFormSubmission = () => {
+    let submitErrors = {}
+    const requiredFields = ["number", "limit", "fee", "name", "description", "date", "supplier"]
+    requiredFields.forEach((field) => {
+      if(newCard[field].trim() === ""){
+        submitErrors = {
+          ...submitErrors,
+          [field]: "is blank"
+        }
+      }
+    })
+    setErrors(submitErrors)
+    return _.isEmpty(submitErrors)
+  }
+
   const handleSubmit = (event) => {
     event.preventDefault()
-    let formPayLoad = newCard
-    props.onSubmit(formPayLoad)
-    setOpen(true)
-    setNewCard({
-      number: "",
-      limit: "",
-      fee: "",
-      name: "",
-      description: "",
-      date: "",
-      supplier: "",
-      image: ""
-    })
-
+    let formPayLoad = newCard;
+    if(validFormSubmission()){
+      props.onSubmit(formPayLoad)
+      setNewCard({
+        number: "",
+        limit: "",
+        fee: "",
+        name: "",
+        description: "",
+        date: "",
+        supplier: "",
+        image: ""
+      })
+    }
   }
 
   return (
     <div>
       <form className={classes.root} onSubmit={handleSubmit} noValidate autoComplete="off">
-
+      <ErrorsList errors={errors} />
         <TextField
           id="number"
           name="number"
