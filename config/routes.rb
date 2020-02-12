@@ -7,11 +7,12 @@ Rails.application.routes.draw do
   get "/cards", to: 'homes#index'
   get "/cards/new", to: 'homes#index'
   get "/cards/:id", to: 'homes#index'
+  get "/cards/:id/edit", to: 'homes#index'
 
 
   namespace :api do
     namespace :v1 do
-      resources :cards, only: [:index, :show, :create, :destroy] do
+      resources :cards, only: [:index, :show, :create, :update, :destroy] do
       end
     end
   end
