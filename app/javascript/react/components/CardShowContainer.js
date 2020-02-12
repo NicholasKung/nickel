@@ -26,7 +26,6 @@ const CardShowContainer = (props) => {
   }, [])
 
   const deleteCard = (cardId) => {
-    debugger
     fetch(`/api/v1/cards/${cardId}`, {
       credentials: "same-origin",
       method: 'DELETE',
@@ -46,14 +45,13 @@ const CardShowContainer = (props) => {
     })
       .then(response => response.json())
       .then(body => {
-        debugger
         setRedirect(true)
       })
       .catch(error => console.error(`Error in fetch: ${error.message}`));
   }
 
   if(redirect) {
-    return <Redirect to={"/"} />
+    return <Redirect to={"/cards"} />
   }
 
   return(

@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
+import { Redirect } from 'react-router-dom'
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
@@ -14,10 +15,12 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const NewCardForm = (props) => {
+const EditCardForm = (props) => {
   const classes = useStyles();
+  let cardId = props.match.params.id
+  const [ redirect, setRedirect ] = useState(false)
   const [ errors, setErrors ] = useState({})
-  const [ newCard, setNewCard ] = useState({
+  const [ editCard, setEditCard ] = useState({
     number: "",
     limit: "",
     fee: "",
@@ -28,34 +31,19 @@ const NewCardForm = (props) => {
     image: ""
   })
 
-  const handleChange = (event) => {
-    setNewCard({
-      ...newCard,
+  const handleChange = event => {
+    setEditCard({
+      ...editCard,
       [event.currentTarget.id]: event.currentTarget.value
     })
   }
 
-  const validFormSubmission = () => {
-    let submitErrors = {}
-    const requiredFields = ["number", "limit", "fee", "name", "description", "date", "supplier"]
-    requiredFields.forEach((field) => {
-      if(newCard[field].trim() === ""){
-        submitErrors = {
-          ...submitErrors,
-          [field]: "is blank"
-        }
-      }
-    })
-    setErrors(submitErrors)
-    return _.isEmpty(submitErrors)
-  }
-
-  const handleSubmit = (event) => {
+  const handleEdit = (event) => {
     event.preventDefault()
-    let formPayLoad = newCard;
+    let formPayload = editCard;
     if(validFormSubmission()){
-      props.onSubmit(formPayLoad)
-      setNewCard({
+      editFetch(formPayload)
+      setEditCard({
         number: "",
         limit: "",
         fee: "",
@@ -68,15 +56,62 @@ const NewCardForm = (props) => {
     }
   }
 
+  const validFormSubmission = () => {
+    let submitErrors = {}
+    const requiredFields = ["number", "limit", "fee", "name", "description", "date", "supplier"]
+    requiredFields.forEach((field) => {
+      if(editCard[field].trim() === ""){
+        submitErrors = {
+          ...submitErrors,
+          [field]: "is blank"
+        }
+      }
+    })
+    setErrors(submitErrors)
+    return _.isEmpty(submitErrors)
+  }
+
+  const editFetch = (formPayLoad) => {
+    fetch(`/api/v1/cards/${cardId}`, {
+      credentials: "same-origin",
+      method: 'PATCH',
+      body: JSON.stringify(formPayLoad),
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json"
+      }
+    })
+    .then(response => {
+      if (response.ok) {
+        return response;
+      } else {
+        let errorMessage = `${response.status} (${response.statusText})`,
+        error = new Error(errorMessage)
+        throw error
+      }
+    })
+    .then(response => response.json())
+    .then(body => {
+      setEditCard(body)
+      setRedirect(true)
+    })
+    .catch(error => console.error(`Error in fetch: ${error.message}`));
+  }
+
+if(redirect) {
+  return <Redirect to ={`/cards/${cardId}`} />
+}
+
   return (
     <div>
-      <form className={classes.root} onSubmit={handleSubmit} noValidate autoComplete="off">
+      <h3>Edit Credit Card Info</h3>
+      <form className={classes.root} onSubmit={handleEdit} noValidate autoComplete="off">
       <ErrorsList errors={errors} />
         <TextField
           id="number"
           name="number"
           label="Credit Card Number"
-          value={newCard.number}
+          value={editCard.number}
           onChange={handleChange}
         />
 
@@ -84,7 +119,7 @@ const NewCardForm = (props) => {
           id="limit"
           name="limit"
           label="Credit Card Limit"
-          value={newCard.limit}
+          value={editCard.limit}
           onChange={handleChange}
         />
 
@@ -92,7 +127,7 @@ const NewCardForm = (props) => {
           id="fee"
           name="fee"
           label="Credit Card Fee"
-          value={newCard.fee}
+          value={editCard.fee}
           onChange={handleChange}
         />
 
@@ -100,7 +135,7 @@ const NewCardForm = (props) => {
           id="name"
           name="name"
           label="Credit Card Name"
-          value={newCard.name}
+          value={editCard.name}
           onChange={handleChange}
         />
 
@@ -108,7 +143,7 @@ const NewCardForm = (props) => {
           id="description"
           name="description"
           label="Credit Card Description"
-          value={newCard.description}
+          value={editCard.description}
           onChange={handleChange}
         />
 
@@ -116,7 +151,7 @@ const NewCardForm = (props) => {
           id="date"
           name="date"
           label="Credit Card Date"
-          value={newCard.date}
+          value={editCard.date}
           onChange={handleChange}
         />
 
@@ -124,7 +159,7 @@ const NewCardForm = (props) => {
           id="supplier"
           name="supplier"
           label="Credit Card Supplier"
-          value={newCard.supplier}
+          value={editCard.supplier}
           onChange={handleChange}
         />
 
@@ -132,16 +167,15 @@ const NewCardForm = (props) => {
           id="image"
           name="image"
           label="Credit Card Image"
-          value={newCard.image}
+          value={editCard.image}
           onChange={handleChange}
         />
         <Button className = "button" variant="contained" color="secondary" type="submit">
-          Add new card
+          Edit Credit Card
         </Button>
       </form>
     </div>
-
   )
 }
 
-export default NewCardForm
+export default EditCardForm

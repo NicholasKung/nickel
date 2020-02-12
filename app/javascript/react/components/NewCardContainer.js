@@ -3,8 +3,9 @@ import { Redirect } from 'react-router-dom'
 import NewCardForm from './NewCardForm.js'
 
 const NewCardContainer = (props) => {
-  const [cards, setCards ] = useState([])
-  const [redirect, setRedirect] = useState(false)
+  const [ cards, setCards ] = useState([])
+  const [ redirect, setRedirect ] = useState(false)
+
 
   const submitNewCard = (formPayLoad) => {
     fetch('/api/v1/cards.json', {
@@ -36,7 +37,6 @@ const NewCardContainer = (props) => {
   }
 
 if(redirect) {
-  debugger
   let cardId = cards[0].card.id
   return <Redirect to ={`/cards/${cardId}`} />
 }

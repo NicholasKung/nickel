@@ -1,5 +1,5 @@
 class Api::V1::CardsController < ApplicationController
-  before_action :authenticate_user!, only: [:index, :show, :create, :destroy]
+  before_action :authenticate_user!, only: [:index, :show, :create, :update, :destroy]
   protect_from_forgery unless: -> { request.format.json? }
 
   def index
@@ -20,6 +20,13 @@ class Api::V1::CardsController < ApplicationController
       render json: { error: card.errors.full_messages }, status: :unprocessable_entity
     end
   end
+
+  def update
+    card = Card.find(params[:id])
+    card.update_attributes(card_params)
+    render json: card
+  end
+
 
   def destroy
     card = Card.find(params[:id])
