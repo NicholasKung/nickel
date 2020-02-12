@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react'
+import { Link } from "react-router-dom"
 import CardTile from './CardTile.js'
 
 const CardIndex = (props) => {
@@ -26,6 +27,7 @@ const CardIndex = (props) => {
 
     return(
       <div>
+
         <CardTile
           key={card.key}
           cardData={card}
@@ -38,6 +40,11 @@ const CardIndex = (props) => {
     <div>
       <h2>Your Credit Cards</h2>
       {cardTiles}
+      <Link
+        to={`/cards/new`}
+        className = "button">
+          Add a New Credit Card
+      </Link>
     </div>
   )
 }
