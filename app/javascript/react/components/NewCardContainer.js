@@ -43,6 +43,7 @@ if(redirect) {
 
   return (
     <div>
+      <h3>Add a new card</h3>
       <NewCardForm
         onSubmit = {submitNewCard}
       />
