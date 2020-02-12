@@ -1,5 +1,5 @@
 class Api::V1::CardsController < ApplicationController
-  before_action :authenticate_user!, only: [:index, :show, :create]
+  before_action :authenticate_user!, only: [:index, :show, :create, :destroy]
   protect_from_forgery unless: -> { request.format.json? }
 
   def index
@@ -21,6 +21,16 @@ class Api::V1::CardsController < ApplicationController
     end
   end
 
+  def destroy
+    card = Card.find(params[:id])
+
+    if current_user == card.user
+      card.destroy
+      render json: { message: "Delete Successful." }
+    else
+      render json: { message: "Could not delete." }
+    end
+  end
 
 
   private
