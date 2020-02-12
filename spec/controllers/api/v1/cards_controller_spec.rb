@@ -117,5 +117,13 @@ RSpec.describe Api::V1::CardsController, type: :controller do
         expect(new_count).to eq prev_count
       end
     end
+
+  describe "DELETE#destroy" do
+    it "should delete the desired album." do
+      prev_count = Card.count
+      Card.destroy(first_card.id)
+      expect(Card.count).to eq(prev_count - 1)
+      end
+    end
   end
 end
