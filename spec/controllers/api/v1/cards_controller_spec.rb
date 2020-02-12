@@ -91,7 +91,7 @@ RSpec.describe Api::V1::CardsController, type: :controller do
         expect{ post :create, params: new_card, format: :json }.to change { Card.count }.from(1).to(2)
       end
 
-      it "returns the new album as JSON" do
+      it "returns the new card as JSON" do
 
         sign_in user
         post :create, params: new_card, format: :json
@@ -117,13 +117,46 @@ RSpec.describe Api::V1::CardsController, type: :controller do
         expect(new_count).to eq prev_count
       end
     end
+  end
 
   describe "DELETE#destroy" do
-    it "should delete the desired album." do
+    it "should delete the desired credit card." do
       prev_count = Card.count
       Card.destroy(first_card.id)
       expect(Card.count).to eq(prev_count - 1)
       end
     end
+
+  describe "PATCH#update" do
+    let!(:new_card) {
+      {card: { number:"1234",
+        limit:1000,
+        fee:50,
+        name:"Test Name",
+        description:"Test Description",
+        date:"12/12",
+        supplier:"Visa",
+        image:"img",
+        user: user
+      },
+      id:first_card.id }
+    }
+    it "should update the info of the credit card" do
+
+      sign_in user
+      patch :update, params: new_card, format: :json
+      response_body = JSON.parse(response.body)
+
+
+      expect(response_body["number"]).to eq "1234"
+      expect(response_body["limit"]).to eq 1000
+      expect(response_body["fee"]).to eq 1500
+      expect(response_body["name"]).to eq "Test"
+      expect(response_body["description"]).to eq "Test Description"
+      expect(response_body["date"]).to eq "May 2020"
+      expect(response_body["supplier"]).to eq "Visa"
+      expect(response_body["image"]).to eq "https://media.giphy.com/media/pSpmpxFxFwDpC/giphy.gif"
+
+      end
+    end
   end
-end
