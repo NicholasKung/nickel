@@ -1,5 +1,18 @@
-.field {
-  width:20%;
+body {
+  background-color: #11C9AB;
+  background-image: 'https://images.unsplash.com/photo-1561414927-6d86591d0c4f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2532&q=80'
+}
+
+h1, h2, h3, h4, h5, h6, p {
+  font-family: 'Vollkorn', serif;
+  text-align: center;
+}
+
+.field, .actions {
+  font-family: 'Vollkorn', serif;
+  width:40%;
+  display:block;
+  margin:auto;
 }
 
 .card-tile {
@@ -11,8 +24,12 @@
 }
 
 form {
-  width: 50%;
+  width: 40%;
   margin: auto;
+  background-color: white;
+  border-radius: 5px;
+  padding: 10px;
+
 }
 
 .button {
@@ -27,4 +44,14 @@ form {
 
 img {
   margin-bottom: 10px;
+}
+
+.sign {
+  font-family: 'Vollkorn', serif;
+}
+
+.welcome-image {
+  height: 200px;
+  display: block;
+  margin: auto;
 }
