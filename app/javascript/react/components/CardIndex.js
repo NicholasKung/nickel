@@ -42,12 +42,20 @@ const CardIndex = (props) => {
     )
   })
 
+  const barPhrase = () => {
+  if(cards !== null && cards.length > 0) {
+    return `Credit Card Data for ${cards[0].full_name}`
+  } else {
+    return `Credit Card Data`
+  }
+}
+
   return(
     <div>
         <AppBar color = "secondary" position="relative">
           <Toolbar>
             <Typography variant="h6" color="inherit" noWrap>
-              Your credit cards
+              {barPhrase()}
             </Typography>
           </Toolbar>
         </AppBar>
