@@ -22,14 +22,14 @@ const useStyles = makeStyles(theme => ({
   root: {
     display: 'flex',
     flexDirection: 'column',
-    minHeight: '100vh',
+    minHeight: '10vh',
   },
   main: {
-    marginTop: theme.spacing(8),
+    marginTop: theme.spacing(3),
     marginBottom: theme.spacing(2),
   },
   footer: {
-    padding: theme.spacing(3, 2),
+    padding: theme.spacing(2, 2),
     marginTop: 'auto',
     backgroundColor:
       theme.palette.type === 'dark' ? theme.palette.grey[800] : theme.palette.grey[200],
