@@ -1,5 +1,6 @@
 class Card < ApplicationRecord
   belongs_to :user
+  has_many :transactions
 
   validates :number, length: { is: 4 }
   validates :limit, numericality:true

@@ -35,7 +35,7 @@ const CardIndex = (props) => {
     return(
       <div>
         <CardTile
-          key={card.key}
+          key={card.id}
           cardData={card}
           />
       </div>
