@@ -17,6 +17,7 @@ feature 'user registers', %Q{
 
     fill_in 'First name', with: 'Nick'
     fill_in 'Last name', with: 'Kung'
+    fill_in 'Phone', with: '9128197129'
     fill_in 'Email', with: 'john@example.com'
     fill_in 'Password', with: 'password'
     fill_in 'Password confirmation', with: 'password'
