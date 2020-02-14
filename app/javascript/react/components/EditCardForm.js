@@ -40,9 +40,9 @@ const EditCardForm = (props) => {
 
   const handleEdit = (event) => {
     event.preventDefault()
-    let formPayload = editCard;
+    let formPayLoad = editCard;
     if(validFormSubmission()){
-      editFetch(formPayload)
+      editFetch(formPayLoad)
       setEditCard({
         number: "",
         limit: "",
