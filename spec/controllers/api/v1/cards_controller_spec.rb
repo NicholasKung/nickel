@@ -6,6 +6,7 @@ RSpec.describe Api::V1::CardsController, type: :controller do
     id:1,
     first_name:"Nick",
     last_name:"Kung",
+    phone:"9148197129",
     email:"email6@email.com",
     password:"123456"
     ) }
