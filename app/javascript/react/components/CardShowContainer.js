@@ -68,9 +68,7 @@ const CardShowContainer = (props) => {
       .catch(error => console.error(`Error in fetch: ${error.message}`));
   }
 
-  if(redirect) {
-    return <Redirect to={"/cards"} />
-  }
+
 
   const submitNewTransaction = (formPayLoad) => {
     fetch(`/api/v1/cards/${cardId}/transactions`, {
@@ -100,18 +98,44 @@ const CardShowContainer = (props) => {
     .catch(error => console.error(`Error in fetch: ${error.message}`));
   }
 
+  const deleteTransaction = (transactionId) => {
+    fetch(`/api/v1/cards/${cardId}/transactions/${transactionId}`, {
+      credentials: "same-origin",
+      method: 'DELETE',
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json"
+      }
+    })
+    .then(response => {
+      if (response.ok) {
+        return response;
+      } else {
+        let errorMessage = `${response.status} (${response.statusText})`,
+         error = new Error(errorMessage)
+        throw error
+      }
+    })
+    .then(response => response.json())
+    .then(body => {
+      window.location.reload()
+    })
+    .catch(error => console.error(`Error in fetch: ${error.message}`));
+  }
+
   const transactionTiles = transactions.map((transaction) => {
     return(
       <div>
         <TransactionTile
           transactionData = {transaction}
+          deleteTransaction={deleteTransaction}
         />
       </div>
     )
   })
 
   const remainingBalance = (num) => {
-    for(let i = 0; i < transactions.length - 1; i++) {
+    for (let i = 0; i < transactions.length; i++) {
       if (num > 0) {
         num = num - transactions[i].amount
       }
@@ -119,6 +143,10 @@ const CardShowContainer = (props) => {
         return "You are broke"
     }
     return num
+  }
+
+  if (redirect) {
+    return <Redirect to={"/cards"} />
   }
 
 
