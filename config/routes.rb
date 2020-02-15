@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       resources :cards, only: [:index, :show, :create, :update, :destroy] do
-        resources :transactions, only: [:index, :create] do
+        resources :transactions, only: [:index, :create, :destroy] do
         end
       end
     end
