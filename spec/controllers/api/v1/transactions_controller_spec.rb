@@ -38,5 +38,4 @@ RSpec.describe Api::V1::TransactionsController, type: :controller do
       expect(Transaction.count).to eq(prev_count - 1)
     end
   end
-
 end
