@@ -1,3 +1,5 @@
+require "#{Rails.root}/app/services/twilio_client.rb"
+
 class Api::V1::TransactionsController < ApplicationController
     before_action :authenticate_user!, only: [:index, :create, :destroy]
     protect_from_forgery unless: -> { request.format.json? }
@@ -13,6 +15,7 @@ class Api::V1::TransactionsController < ApplicationController
       transaction.card = card
 
       if transaction.save
+        TwilioClient.new.send_text(current_user, "You have successfully created a new transaction")
         render json: transaction
       else
         render json: { error: transaction.errors.full_messages }, status: :unprocessable_entity
