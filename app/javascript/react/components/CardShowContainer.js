@@ -136,11 +136,11 @@ const CardShowContainer = (props) => {
 
   const remainingBalance = (num) => {
     for (let i = 0; i < transactions.length; i++) {
-      if (num > 0) {
+      if (num - transactions[i].amount >= 0) {
         num = num - transactions[i].amount
       }
       else
-        return "You are broke"
+        return "You are broke by"
     }
     return num
   }
@@ -152,23 +152,29 @@ const CardShowContainer = (props) => {
 
   return(
     <div>
-      <CardShow
-        cardData={card}
-        deleteCard={deleteCard}
-      />
-      <Button className = {classes.margin} variant="contained" color="secondary" type="submit" href={`/cards`}>
-        Back to List of Credit Cards
-      </Button>
-      <h4>Transactions on this card</h4>
-      <h3>Limit:${card.limit}</h3>
-      <h3>Credit Remaining:${remainingBalance(card.limit)}</h3>
-      <div>
-        <h4>Description || Category || Amount</h4>
+      <div className = "row">
+        <div className = "columns medium-6">
+          <CardShow
+            cardData={card}
+            deleteCard={deleteCard}
+          />
+          <Button className = {classes.margin} variant="contained" color="secondary" type="submit" href={`/cards`}>
+            Back to List of Credit Cards
+          </Button>
+        </div>
+        <div className = "columns medium-6 transaction-side">
+          <h4>Transactions on this card</h4>
+          <h3>Limit:${card.limit}</h3>
+          <h3>Credit Remaining:${remainingBalance(card.limit)}</h3>
+          <div>
+            <h4>Description || Category || Amount</h4>
+          </div>
+          {transactionTiles}
+          <NewTransactionForm
+            onSubmit = {submitNewTransaction}
+          />
+        </div>
       </div>
-      {transactionTiles}
-      <NewTransactionForm
-        onSubmit = {submitNewTransaction}
-      />
       <Footer
       />
     </div>
