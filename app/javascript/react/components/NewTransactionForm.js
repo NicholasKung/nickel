@@ -3,6 +3,7 @@ import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
 import _ from "lodash";
+import MenuItem from '@material-ui/core/MenuItem';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -12,6 +13,25 @@ const useStyles = makeStyles(theme => ({
     },
   },
 }));
+
+const sections = [
+  {
+    value: 'Food',
+    label: 'Food',
+  },
+  {
+    value: 'Vehicle',
+    label: 'Vehicle',
+  },
+  {
+    value: 'Home',
+    label: 'Home',
+  },
+  {
+    value: 'Other',
+    label: 'Other',
+  },
+];
 
 const NewTransactionForm = (props) => {
   const classes = useStyles();
@@ -24,7 +44,7 @@ const NewTransactionForm = (props) => {
   const handleChange = (event) => {
     setNewTransaction({
       ...newTransaction,
-      [event.currentTarget.name]: event.currentTarget.value
+      [event.target.name]: event.target.value
     })
   }
 
@@ -49,15 +69,25 @@ const NewTransactionForm = (props) => {
           label="Transaction Name"
           value={newTransaction.name}
           onChange={handleChange}
+          variant = "filled"
         />
 
         <TextField
           id="category"
+          select
           name="category"
           label="Transaction Category"
           value={newTransaction.category}
           onChange={handleChange}
-        />
+          variant = "filled"
+        >
+          {sections.map(option => (
+            <MenuItem key={option.value} value={option.value}>
+              {option.label}
+            </MenuItem>
+          ))}
+        </TextField>
+
 
         <TextField
           id="amount"
@@ -65,6 +95,7 @@ const NewTransactionForm = (props) => {
           label="Transaction Amount"
           value={newTransaction.amount}
           onChange={handleChange}
+          variant = "filled"
         />
 
         <Button className = "button" variant="contained" color="secondary" type="submit">
