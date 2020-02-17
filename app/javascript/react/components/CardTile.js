@@ -10,6 +10,7 @@ const CardTile = (props) => {
       <Link to={`/cards/${props.cardData.id}`}>
         <img src={props.cardData.image}/>
       </Link>
+      <h3>Added on: {props.cardData.card_time}</h3>
     </div>
   )
 }
