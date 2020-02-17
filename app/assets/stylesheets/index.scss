@@ -1,6 +1,5 @@
 body {
-  background-color: #11C9AB;
-  background-image: 'https://images.unsplash.com/photo-1561414927-6d86591d0c4f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2532&q=80'
+  background-color: #9EE0C7
 }
 
 h1, h2, h3, h4, h5, h6, p {
@@ -36,6 +35,13 @@ h1, h2, h3, h4, h5, h6, p {
   border-radius: 10px;
   margin: 10px auto;
 }
+.chart-side {
+  border: 5px solid black;
+  border-radius: 10px;
+  margin: 10px auto;
+  padding:auto;
+  width: 30%;
+}
 
 form {
   width: 60%;
@@ -44,6 +50,10 @@ form {
   border-radius: 5px;
   padding: 10px;
 
+}
+
+.percentage-pie-chart {
+  background-color: black;
 }
 
 .button {

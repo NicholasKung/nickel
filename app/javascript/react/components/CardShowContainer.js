@@ -6,6 +6,9 @@ import Footer from './Footer'
 import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
 import NewTransactionForm from './NewTransactionForm';
+import ChartCategoryPercentage from './ChartCategoryPercentage'
+import ChartPerCategory from './ChartPerCategory'
+import ChartPercentLeft from './ChartPercentLeft'
 
 
 const useStyles = makeStyles(theme => ({
@@ -134,6 +137,37 @@ const CardShowContainer = (props) => {
     )
   })
 
+  let categoryHash = {
+    food:0,
+    vehicle:0,
+    home:0,
+    other:0,
+   }
+
+  let typeHash = {
+    food:0,
+    vehicle:0,
+    home:0,
+    other:0,
+  }
+
+
+  const transactionChartData = transactions.forEach((transaction) => {
+      if (transaction.category === "Food") {
+        categoryHash.food += transaction.amount
+        typeHash.food += 1
+      } else if (transaction.category === "Vehicle") {
+        categoryHash.vehicle += transaction.amount
+        typeHash.vehicle += 1
+      } else if (transaction.category === "Home") {
+        categoryHash.home += transaction.amount
+        typeHash.home += 1
+      } else {
+        categoryHash.other += transaction.amount
+        typeHash.other += 1
+      }
+  })
+
   const remainingBalance = (num) => {
     for (let i = 0; i < transactions.length; i++) {
       if (num - transactions[i].amount >= 0) {
@@ -145,15 +179,19 @@ const CardShowContainer = (props) => {
     return num
   }
 
+  const getRemaining = (limit) => {
+    debugger
+    return card.limit - remainingBalance(limit)
+  }
+
   if (redirect) {
     return <Redirect to={"/cards"} />
   }
 
-
   return(
     <div>
       <div className = "row">
-        <div className = "columns medium-6">
+        <div className = "columns medium-4">
           <CardShow
             cardData={card}
             deleteCard={deleteCard}
@@ -162,7 +200,7 @@ const CardShowContainer = (props) => {
             Back to List of Credit Cards
           </Button>
         </div>
-        <div className = "columns medium-6 transaction-side">
+        <div className = "columns medium-4 transaction-side">
           <h4>Transactions on this card</h4>
           <h3>Limit:${card.limit}</h3>
           <h3>Credit Remaining:${remainingBalance(card.limit)}</h3>
@@ -174,7 +212,20 @@ const CardShowContainer = (props) => {
             onSubmit = {submitNewTransaction}
           />
         </div>
+          <div className = 'columns medium-4 chart-side'>
+            <ChartCategoryPercentage
+              chartData = {categoryHash}
+            />
+            <ChartPerCategory
+              chartData = {typeHash}
+            />
+            <ChartPercentLeft
+              card = {card}
+              left = {remainingBalance(card.limit)}
+            />
+          </div>
       </div>
+
       <Footer
       />
     </div>
