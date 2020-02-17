@@ -11,6 +11,7 @@ import ChartPerCategory from './ChartPerCategory'
 import ChartPercentLeft from './ChartPercentLeft'
 
 
+
 const useStyles = makeStyles(theme => ({
   root: {
     '& > *': {
@@ -225,7 +226,6 @@ const CardShowContainer = (props) => {
             />
           </div>
       </div>
-
       <Footer
       />
     </div>
