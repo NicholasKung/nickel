@@ -95,7 +95,7 @@ const NewCardForm = (props) => {
         <TextField
           id="number"
           name="number"
-          label="Credit Card Number"
+          label="Credit Card Number (Last 4 only)"
           value={newCard.number}
           onChange={handleChange}
         />

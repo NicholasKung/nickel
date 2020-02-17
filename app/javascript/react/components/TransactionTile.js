@@ -23,6 +23,7 @@ const handleDelete = (event) => {
     <div className = "transaction-tile">
       <div>
         <h3>{props.transactionData.name} || {props.transactionData.category} || ${props.transactionData.amount}</h3>
+        <p>Entered: {props.transactionData.transaction_time}</p>
         <Button className = {classes.margin} variant="contained" color="secondary" type="submit" onClick={handleDelete}>
           Delete Transaction
         </Button>

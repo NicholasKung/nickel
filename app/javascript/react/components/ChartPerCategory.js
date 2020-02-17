@@ -30,12 +30,7 @@ const ChartPerCategory = (props) => {
           }
         },
         legend: {
-          position: 'bottom',
-          textStyle: {
-            color:'black',
-            fontSize:'16',
-            fontName:'Vollkorn',
-          }
+          position: 'none'
         },
         hAxis: {
           title: 'Number of transactions',
