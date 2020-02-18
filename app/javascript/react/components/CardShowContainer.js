@@ -9,6 +9,7 @@ import NewTransactionForm from './NewTransactionForm';
 import ChartCategoryPercentage from './ChartCategoryPercentage'
 import ChartPerCategory from './ChartPerCategory'
 import ChartPercentLeft from './ChartPercentLeft'
+import ChartHistogram from './ChartHistogram'
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -148,6 +149,14 @@ const CardShowContainer = (props) => {
     other:0,
   }
 
+  let transactionHistogramData = []
+  const histogram = transactions.forEach((transaction) => {
+      let transactionData = [transaction.name, transaction.amount]
+      transactionHistogramData.push(transactionData)
+      return transactionHistogramData
+  }
+)
+
 
   const transactionChartData = transactions.forEach((transaction) => {
       if (transaction.category === "Food") {
@@ -183,7 +192,7 @@ const CardShowContainer = (props) => {
   return(
     <div>
       <div className = "add-button">
-        <Button className = {classes.margin} variant="contained" color="secondary" type="submit" href={`/cards`}>
+        <Button className = {classes.margin} variant="contained" color="primary" type="submit" href={`/cards`}>
           Back to List of Credit Cards
         </Button>
       </div>
@@ -213,12 +222,13 @@ const CardShowContainer = (props) => {
           <ChartPerCategory
             chartData = {typeHash}
           />
+          <ChartHistogram
+            chartData = {transactionHistogramData}
+          />
         </div>
 
       <div className = 'row'>
-        <div className = "columns medium-4">
-        </div>
-        <div className = "columns medium-8">
+        <div className = "columns medium-12">
           <h4>Transactions on this card</h4>
           <h3>Credit Remaining:${remainingBalance(card.limit)}</h3>
           <div>
