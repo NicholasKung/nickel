@@ -11,7 +11,6 @@ class Api::V1::TransactionsController < ApplicationController
     transaction.card = card
 
     if transaction.save
-      TwilioClient.new.send_text(current_user, "You have successfully created a new transaction")
       render json: transaction
     else
       render json: { error: transaction.errors.full_messages }, status: :unprocessable_entity
@@ -22,8 +21,6 @@ class Api::V1::TransactionsController < ApplicationController
     transaction = Transaction.find(params[:id])
 
     if current_user == transaction.user
-      TwilioClient.new.send_text(current_user, "You have successfully deleted a transaction")
-      transaction.destroy
       render json: { message: "Delete Successful." }
     else
       render json: { message: "Could not delete." }
