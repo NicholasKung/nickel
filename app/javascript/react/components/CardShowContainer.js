@@ -10,8 +10,6 @@ import ChartCategoryPercentage from './ChartCategoryPercentage'
 import ChartPerCategory from './ChartPerCategory'
 import ChartPercentLeft from './ChartPercentLeft'
 
-
-
 const useStyles = makeStyles(theme => ({
   root: {
     '& > *': {
@@ -72,8 +70,6 @@ const CardShowContainer = (props) => {
       .catch(error => console.error(`Error in fetch: ${error.message}`));
   }
 
-
-
   const submitNewTransaction = (formPayLoad) => {
     fetch(`/api/v1/cards/${cardId}/transactions`, {
       credentials: "same-origin",
@@ -122,7 +118,7 @@ const CardShowContainer = (props) => {
     })
     .then(response => response.json())
     .then(body => {
-      window.location.reload()
+      setRedirect(true)
     })
     .catch(error => console.error(`Error in fetch: ${error.message}`));
   }
@@ -180,26 +176,24 @@ const CardShowContainer = (props) => {
     return num
   }
 
-  const getRemaining = (limit) => {
-    debugger
-    return card.limit - remainingBalance(limit)
-  }
-
   if (redirect) {
     return <Redirect to={"/cards"} />
   }
 
   return(
     <div>
-      <div className = "row">
+      <div className = "add-button">
+        <Button className = {classes.margin} variant="contained" color="secondary" type="submit" href={`/cards`}>
+          Back to List of Credit Cards
+        </Button>
+      </div>
+
         <div className = "columns medium-4">
           <CardShow
             cardData={card}
             deleteCard={deleteCard}
+            submitNewTransaction = {submitNewTransaction}
           />
-          <Button className = {classes.margin} variant="contained" color="secondary" type="submit" href={`/cards`}>
-            Back to List of Credit Cards
-          </Button>
         </div>
         <div className = 'columns medium-8 chart-side'>
           <h3>Spending Report</h3>
@@ -220,23 +214,18 @@ const CardShowContainer = (props) => {
             chartData = {typeHash}
           />
         </div>
-      </div>
+
       <div className = 'row'>
-        <div className = "columns medium-6 transaction-side">
+        <div className = "columns medium-4">
+        </div>
+        <div className = "columns medium-8">
           <h4>Transactions on this card</h4>
-          <h3>Limit:${card.limit}</h3>
           <h3>Credit Remaining:${remainingBalance(card.limit)}</h3>
           <div>
             <h4>Description || Category || Amount</h4>
           </div>
           {transactionTiles}
         </div>
-
-      <div className = "columns medium-6">
-        <NewTransactionForm
-          onSubmit = {submitNewTransaction}
-        />
-      </div>
     </div>
     <Footer
     />
