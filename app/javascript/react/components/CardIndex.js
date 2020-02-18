@@ -60,13 +60,16 @@ const CardIndex = (props) => {
           </Toolbar>
         </AppBar>
       {cardTiles}
-      <Button
-        href={`/cards/new`}
-        variant="contained"
-        color="primary"
-        className = "add-button">
-          Add a New Credit Card
-      </Button>
+      <div className = "add-button">
+        <Button
+          href={`/cards/new`}
+          variant="contained"
+          color="primary"
+          className = "add-button"
+          >
+            Add a New Credit Card
+        </Button>
+      </div>
       <Footer />
     </div>
   )

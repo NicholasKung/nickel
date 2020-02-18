@@ -6,7 +6,7 @@ const ChartPerCategory = (props) => {
   return(
     <div style={{ display: 'flex', maxWidth: 900 }}>
     <Chart
-      width={'500px'}
+      width={'700px'}
       height={'300px'}
       chartType="BarChart"
       loader={<div>Loading Chart</div>}
@@ -39,6 +39,7 @@ const ChartPerCategory = (props) => {
             color: 'black',
             fontName: 'Vollkorn',
             fontSize: '12',
+            italic: false
           },
           titleTextStyle: {
             color: 'black',
@@ -51,12 +52,14 @@ const ChartPerCategory = (props) => {
           titleTextStyle: {
             color: 'black',
             fontName: 'Vollkorn',
-            fontSize: '20'
+            fontSize: '20',
+            italic: false
           },
           textStyle: {
             color: 'black',
             fontName: 'Vollkorn',
             fontSize: '20',
+            italic: false
           },
         },
         titleTextStyle: {
@@ -64,6 +67,7 @@ const ChartPerCategory = (props) => {
         fontName: 'Vollkorn',
         fontSize: '20',
         bold: false,
+        italic: false,
       },
       animation: {
         duration: 2000,

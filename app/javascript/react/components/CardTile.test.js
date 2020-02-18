@@ -34,6 +34,7 @@ describe("CardTile", () => {
 
   it("should render an img tag containing the img received via props", () => {
      expect(wrapper.find('img').props()).toEqual({
+       className: "img-credit",
        src: "https://www.mastercard.us/en-us/consumers/find-card-products/credit-cards/mastercard/_jcr_content/contentpar/herolight_1/image.adaptive.319.low.jpg/1487872342914.jpg"})
   });
 

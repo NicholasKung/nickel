@@ -7,7 +7,7 @@ const ChartCategoryPercentage = (props) => {
     <div style={{ display: 'flex', maxWidth: 900 }}>
       <Chart
         className = "percentage-pie-chart"
-        width={'500px'}
+        width={'390px'}
         height={'300px'}
         chartType="PieChart"
         loader={<div>Loading Chart</div>}

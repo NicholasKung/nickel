@@ -5,6 +5,7 @@ import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
 import _ from "lodash"
 import ErrorsList from "./ErrorsList"
+import MenuItem from '@material-ui/core/MenuItem';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -14,6 +15,25 @@ const useStyles = makeStyles(theme => ({
     },
   },
 }));
+
+const sections = [
+  {
+    value: 'Visa',
+    label: 'Visa',
+  },
+  {
+    value: 'MasterCard',
+    label: 'MasterCard',
+  },
+  {
+    value: 'Discover',
+    label: 'Discover',
+  },
+  {
+    value: 'Other',
+    label: 'Other',
+  },
+];
 
 const EditCardForm = (props) => {
   const classes = useStyles();
@@ -34,7 +54,7 @@ const EditCardForm = (props) => {
   const handleChange = event => {
     setEditCard({
       ...editCard,
-      [event.currentTarget.id]: event.currentTarget.value
+      [event.target.name]: event.target.value
     })
   }
 
@@ -157,11 +177,18 @@ if(redirect) {
 
         <TextField
           id="supplier"
+          select
           name="supplier"
           label="Credit Card Supplier"
           value={editCard.supplier}
           onChange={handleChange}
-        />
+        >
+        {sections.map(option => (
+          <MenuItem key={option.value} value={option.value}>
+            {option.label}
+          </MenuItem>
+        ))}
+        </TextField>
 
         <TextField
           id="image"
