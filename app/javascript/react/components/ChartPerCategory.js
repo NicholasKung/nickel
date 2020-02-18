@@ -11,16 +11,15 @@ const ChartPerCategory = (props) => {
       chartType="BarChart"
       loader={<div>Loading Chart</div>}
       data={[
-        ['City', 'Number of transactions'],
-        ['Food', props.chartData.food],
-        ['Vehicle', props.chartData.vehicle],
-        ['Home', props.chartData.home],
-        ['Other', props.chartData.other],
+        ['City', 'Number of transactions', { role: 'style'}],
+        ['Food', props.chartData.food,'#66B5E0'],
+        ['Vehicle', props.chartData.vehicle, '#FFD5AD'],
+        ['Home', props.chartData.home, '#B294FF'],
+        ['Other', props.chartData.other, '#FAB189'],
       ]}
       options={{
         title: 'Number of transactions per category',
-        backgroundColor: '#9EE0C7',
-        colors: ['#F50057'],
+        backgroundColor: '#B8E0FF',
         chartArea: { width: '50%' },
         tooltip: {
           textStyle: {

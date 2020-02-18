@@ -20,10 +20,10 @@ const CardShow = (props) => {
           <img src = {props.cardData.image} />
           <h3>{props.cardData.description}</h3>
           <p>Expiration Date: {props.cardData.date} Limit: ${props.cardData.limit} Annual Fee: ${props.cardData.fee}</p>
-          <Button className = 'edelete-button' variant="contained" color="secondary" type="submit" onClick={handleDelete}>
+          <Button className = 'edelete-button' variant="contained" color="primary" type="submit" onClick={handleDelete}>
             Delete Card
           </Button>
-          <Button className = 'edelete-button' variant="contained" color="secondary" type="submit" href={`/cards/${props.cardData.id}/edit`}>
+          <Button className = 'edelete-button' variant="contained" color="primary" type="submit" href={`/cards/${props.cardData.id}/edit`}>
             Edit Card
           </Button>
         </div>

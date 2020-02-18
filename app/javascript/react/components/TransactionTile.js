@@ -13,8 +13,8 @@ const handleDelete = (event) => {
 }
 
   return(
-    <div className = "transaction-tile">
-      <div>
+    <div className = "columns medium-4">
+      <div className = "transaction-tile">
         <div>
           <h3>
           {props.transactionData.name} || {props.transactionData.category} || ${props.transactionData.amount}

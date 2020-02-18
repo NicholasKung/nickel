@@ -1,5 +1,5 @@
 body {
-  background-color: #9EE0C7
+  background-color: #B8E0FF
 }
 
 h1, h2, h3, h4, h5, h6, p {
@@ -21,6 +21,7 @@ h1, h2, h3, h4, h5, h6, p {
   border-radius: 10px;
   width: 100%;
   padding: 5px;
+  box-shadow: 10px 5px 5px grey;
 }
 
 .card-tile-index {
@@ -30,7 +31,7 @@ h1, h2, h3, h4, h5, h6, p {
   border-radius: 10px;
   width: 48%;
   padding: 5px;
-  background-color: #A0D0FF;
+  background-color: #FFE3B8;
   box-shadow: 10px 5px 5px grey;
 }
 
@@ -40,7 +41,8 @@ h1, h2, h3, h4, h5, h6, p {
   border: 5px solid black;
   border-radius: 10px;
   padding: 5px;
-  width: 90%;
+  width: 100%;
+  box-shadow: 10px 5px 5px grey;
 }
 
 .transaction-side {
@@ -48,26 +50,29 @@ h1, h2, h3, h4, h5, h6, p {
   border-radius: 10px;
   margin: 10px auto;
   width: 50%;
+  box-shadow: 10px 5px 5px grey;
+  background-color: #B8E0FF;
 }
 .chart-side {
   border: 5px solid black;
   border-radius: 10px;
   margin: 10px auto;
-  padding:auto;
   width: 65%;
   display: block;
   padding: 5px;
+  box-shadow: 10px 5px 5px grey;
 }
 
 .nickel-title {
   text-align: left;
   float: left;
+  color: #3F50B5;
 }
 
 form {
   width: 60%;
   margin: auto;
-  background-color: white;
+  background-color: #FFEDD1;
   border-radius: 5px;
   padding: 10px;
 }
@@ -127,4 +132,5 @@ img {
 
 .transaction {
   margin-top: 20px;
+  margin-bottom: 20px;
 }
