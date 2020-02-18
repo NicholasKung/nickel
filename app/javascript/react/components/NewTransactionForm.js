@@ -9,7 +9,7 @@ const useStyles = makeStyles(theme => ({
   root: {
     '& .MuiTextField-root': {
       margin: theme.spacing(1),
-      width: 300,
+      width: 200,
     },
   },
 }));
@@ -62,7 +62,7 @@ const NewTransactionForm = (props) => {
   return(
     <div className = 'transaction'>
       <form className={classes.root} onSubmit={handleSubmit} noValidate autoComplete="off">
-        <h3>Add a new transaction</h3>
+        <h4>Add a new transaction</h4>
         <TextField
           id="name"
           name="name"

@@ -25,11 +25,13 @@ h1, h2, h3, h4, h5, h6, p {
 
 .card-tile-index {
   text-align: center;
-  margin: 10px auto;
+  margin: 10px 10px;
   border: 5px solid black;
   border-radius: 10px;
-  width: 50%;
+  width: 48%;
   padding: 5px;
+  background-color: #A0D0FF;
+  box-shadow: 10px 5px 5px grey;
 }
 
 .transaction-tile {
@@ -68,7 +70,6 @@ form {
   background-color: white;
   border-radius: 5px;
   padding: 10px;
-
 }
 
 .percentage-pie-chart {
@@ -85,6 +86,14 @@ form {
   margin: auto;
   display: block;
   align-items: center;
+}
+
+.button-delete {
+  float: right;
+}
+
+.edelete-button {
+  margin: 5px;
 }
 
 .add-button {
@@ -114,4 +123,8 @@ img {
   height: 200px;
   display: block;
   margin: auto;
+}
+
+.transaction {
+  margin-top: 20px;
 }

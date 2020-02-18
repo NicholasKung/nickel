@@ -14,7 +14,6 @@ const WelcomePage = (props) => {
       <h3 className = "welcome-title">Ever get tired of forgetting your credit card information?</h3>
       <h4 className = "welcome-title">With this website you can add all of your credit card information into a tidy virtual wallet</h4>
       <h4 className = "welcome-title">Please sign in or sign up before using this website</h4>
-      <Footer />
     </div>
   )
 }

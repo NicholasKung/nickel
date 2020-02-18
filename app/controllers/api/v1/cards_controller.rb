@@ -1,3 +1,5 @@
+require "#{Rails.root}/app/services/twilio_client.rb"
+
 class Api::V1::CardsController < ApplicationController
   before_action :authenticate_user!, only: [:index, :show, :create, :update, :destroy]
   protect_from_forgery unless: -> { request.format.json? }
@@ -32,13 +34,13 @@ class Api::V1::CardsController < ApplicationController
     card = Card.find(params[:id])
 
     if current_user == card.user
+      TwilioClient.new.send_text(current_user, "You have successfully deleted a Credit Card")
       card.destroy
       render json: { message: "Delete Successful." }
     else
       render json: { message: "Could not delete." }
     end
   end
-
 
   private
 
