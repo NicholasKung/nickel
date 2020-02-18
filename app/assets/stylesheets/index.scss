@@ -19,7 +19,17 @@ h1, h2, h3, h4, h5, h6, p {
   margin: 10px auto;
   border: 5px solid black;
   border-radius: 10px;
-  width: 70%;
+  width: 100%;
+  padding: 5px;
+}
+
+.card-tile-index {
+  text-align: center;
+  margin: 10px auto;
+  border: 5px solid black;
+  border-radius: 10px;
+  width: 50%;
+  padding: 5px;
 }
 
 .transaction-tile {
@@ -27,20 +37,29 @@ h1, h2, h3, h4, h5, h6, p {
   margin: 10px auto;
   border: 5px solid black;
   border-radius: 10px;
-  width: 80%;
+  padding: 5px;
+  width: 90%;
 }
 
 .transaction-side {
   border: 5px solid black;
   border-radius: 10px;
   margin: 10px auto;
+  width: 50%;
 }
 .chart-side {
   border: 5px solid black;
   border-radius: 10px;
   margin: 10px auto;
   padding:auto;
-  width: 30%;
+  width: 65%;
+  display: block;
+  padding: 5px;
+}
+
+.nickel-title {
+  text-align: left;
+  float: left;
 }
 
 form {
@@ -62,12 +81,29 @@ form {
   width: 20%
 }
 
+.button-transaction {
+  margin: auto;
+  display: block;
+  align-items: center;
+}
+
+.add-button {
+  display: block;
+  margin: auto;
+  width: 300px;
+}
+
 .form-button {
   margin: 0 auto;
 }
 
 img {
   margin-bottom: 10px;
+}
+
+.img-credit {
+  height:200px;
+  width:310px;
 }
 
 .sign {
