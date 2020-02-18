@@ -92,38 +92,41 @@ const NewCardForm = (props) => {
     <div>
       <form className={classes.root} onSubmit={handleSubmit} noValidate autoComplete="off">
       <ErrorsList errors={errors} />
-        <TextField
-          id="number"
-          name="number"
-          label="Credit Card Number (Last 4 only)"
-          value={newCard.number}
-          onChange={handleChange}
-        />
+        <div className = 'columns large-6'>
+          <TextField
+            id="number"
+            name="number"
+            label="Credit Card Number (Last 4 only)"
+            value={newCard.number}
+            onChange={handleChange}
+          />
 
-        <TextField
-          id="limit"
-          name="limit"
-          label="Credit Card Limit"
-          value={newCard.limit}
-          onChange={handleChange}
-        />
+          <TextField
+            id="limit"
+            name="limit"
+            label="Credit Card Limit"
+            value={newCard.limit}
+            onChange={handleChange}
+          />
 
-        <TextField
-          id="fee"
-          name="fee"
-          label="Credit Card Fee"
-          value={newCard.fee}
-          onChange={handleChange}
-        />
+          <TextField
+            id="fee"
+            name="fee"
+            label="Credit Card Fee"
+            value={newCard.fee}
+            onChange={handleChange}
+          />
 
-        <TextField
-          id="name"
-          name="name"
-          label="Credit Card Name"
-          value={newCard.name}
-          onChange={handleChange}
-        />
+          <TextField
+            id="name"
+            name="name"
+            label="Credit Card Name"
+            value={newCard.name}
+            onChange={handleChange}
+          />
+      </div>
 
+      <div className ='columns large-6'>
         <TextField
           id="description"
           name="description"
@@ -162,9 +165,12 @@ const NewCardForm = (props) => {
           value={newCard.image}
           onChange={handleChange}
         />
-        <Button className = "button" variant="contained" color="secondary" type="submit">
-          Add new card
-        </Button>
+        </div>
+        <div className = 'add-button'>
+          <Button className = "add-button" variant="contained" color="secondary" type="submit">
+            Add new card
+          </Button>
+        </div>
       </form>
     </div>
 
