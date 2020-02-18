@@ -1,12 +1,8 @@
 require "#{Rails.root}/app/services/twilio_client.rb"
 
 class Api::V1::TransactionsController < ApplicationController
-    before_action :authenticate_user!, only: [:index, :create, :destroy]
+    before_action :authenticate_user!, only: [:create, :destroy]
     protect_from_forgery unless: -> { request.format.json? }
-
-    def index
-      render json: Transaction.all
-    end
 
     def create
       card = Card.find(params["card_id"])
@@ -23,10 +19,10 @@ class Api::V1::TransactionsController < ApplicationController
     end
 
     def destroy
-
       transaction = Transaction.find(params[:id])
 
       if current_user == transaction.user
+        TwilioClient.new.send_text(current_user, "You have successfully deleted a transaction")
         transaction.destroy
         render json: { message: "Delete Successful." }
       else
