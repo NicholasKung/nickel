@@ -98,7 +98,7 @@ const NewTransactionForm = (props) => {
           variant = "filled"
         />
 
-        <Button className = "button-transaction" variant="contained" color="secondary" type="submit">
+        <Button className = "button-transaction" variant="contained" color="primary" type="submit">
           Add new transaction
         </Button>
       </form>
