@@ -34,6 +34,7 @@ class Api::V1::CardsController < ApplicationController
     card = Card.find(params[:id])
 
     if current_user == card.user
+      TwilioClient.new.send_text(current_user, "You have successfully deleted a Credit Card")
       card.destroy
       render json: { message: "Delete Successful." }
     else
