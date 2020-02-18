@@ -15,6 +15,7 @@ class Api::V1::CardsController < ApplicationController
     card = Card.new(card_params)
     card.user = current_user
     if card.save
+      TwilioClient.new.send_text(current_user, "You have successfully created a new card")
       render json: { card: card }
     else
       render json: { error: card.errors.full_messages }, status: :unprocessable_entity
@@ -24,6 +25,7 @@ class Api::V1::CardsController < ApplicationController
   def update
     card = Card.find(params[:id])
     card.update_attributes(card_params)
+    TwilioClient.new.send_text(current_user, "You have successfully edited a card")
     render json: card
   end
 
@@ -33,12 +35,12 @@ class Api::V1::CardsController < ApplicationController
 
     if current_user == card.user
       card.destroy
+      TwilioClient.new.send_text(current_user, "You have successfully deleted a card")
       render json: { message: "Delete Successful." }
     else
       render json: { message: "Could not delete." }
     end
   end
-
 
   private
 
