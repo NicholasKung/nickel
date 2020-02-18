@@ -5,7 +5,7 @@ import { Link } from "react-router-dom"
 const CardTile = (props) => {
 
   return(
-    <div className = "card-tile-index">
+    <div className = "card-tile-index columns medium-6">
       <h1>{props.cardData.name}</h1>
       <Link to={`/cards/${props.cardData.id}`}>
         <img className = "img-credit" src={props.cardData.image}/>
