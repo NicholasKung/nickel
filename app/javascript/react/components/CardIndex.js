@@ -32,7 +32,7 @@ const CardIndex = (props) => {
 
   const cardTiles = cards.map((card) => {
 
-    return(
+    return (
       <div>
         <CardTile
           key={card.id}
@@ -43,7 +43,7 @@ const CardIndex = (props) => {
   })
 
   const barPhrase = () => {
-  if(cards !== null && cards.length > 0) {
+  if (cards !== null && cards.length > 0) {
     return `Credit Card Data for ${cards[0].full_name}`
   } else {
     return `Credit Card Data`
@@ -52,15 +52,15 @@ const CardIndex = (props) => {
 
   return(
     <div>
-        <AppBar color = "secondary" position="relative">
+        <AppBar color = "primary" position= "relative">
           <Toolbar>
-            <Typography variant="h6" color="inherit" noWrap>
+            <Typography variant= "h6" color= "inherit" noWrap>
               {barPhrase()}
             </Typography>
           </Toolbar>
         </AppBar>
       {cardTiles}
-      <div className = "add-button">
+      <div className = "add-button" >
         <Button
           href={`/cards/new`}
           variant="contained"
