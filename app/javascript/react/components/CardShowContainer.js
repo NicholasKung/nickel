@@ -201,7 +201,28 @@ const CardShowContainer = (props) => {
             Back to List of Credit Cards
           </Button>
         </div>
-        <div className = "columns medium-4 transaction-side">
+        <div className = 'columns medium-8 chart-side'>
+          <h3>Spending Report</h3>
+            <div className = 'row'>
+              <div className = 'columns medium-6'>
+                <ChartCategoryPercentage
+                  chartData = {categoryHash}
+                />
+              </div>
+              <div className = 'columns medium-6'>
+                <ChartPercentLeft
+                  card = {card}
+                  left = {remainingBalance(card.limit)}
+                />
+              </div>
+            </div>
+          <ChartPerCategory
+            chartData = {typeHash}
+          />
+        </div>
+      </div>
+      <div className = 'row'>
+        <div className = "columns medium-6 transaction-side">
           <h4>Transactions on this card</h4>
           <h3>Limit:${card.limit}</h3>
           <h3>Credit Remaining:${remainingBalance(card.limit)}</h3>
@@ -209,26 +230,17 @@ const CardShowContainer = (props) => {
             <h4>Description || Category || Amount</h4>
           </div>
           {transactionTiles}
-          <NewTransactionForm
-            onSubmit = {submitNewTransaction}
-          />
         </div>
-          <div className = 'columns medium-4 chart-side'>
-            <ChartCategoryPercentage
-              chartData = {categoryHash}
-            />
-            <ChartPerCategory
-              chartData = {typeHash}
-            />
-            <ChartPercentLeft
-              card = {card}
-              left = {remainingBalance(card.limit)}
-            />
-          </div>
+
+      <div className = "columns medium-6">
+        <NewTransactionForm
+          onSubmit = {submitNewTransaction}
+        />
       </div>
-      <Footer
-      />
     </div>
+    <Footer
+    />
+  </div>
   )
 }
 
