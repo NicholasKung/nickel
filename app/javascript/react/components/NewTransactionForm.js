@@ -60,9 +60,9 @@ const NewTransactionForm = (props) => {
   }
 
   return(
-    <div>
+    <div className = 'transaction'>
       <form className={classes.root} onSubmit={handleSubmit} noValidate autoComplete="off">
-
+        <h3>Add a new transaction</h3>
         <TextField
           id="name"
           name="name"
@@ -98,7 +98,7 @@ const NewTransactionForm = (props) => {
           variant = "filled"
         />
 
-        <Button className = "button" variant="contained" color="secondary" type="submit">
+        <Button className = "button-transaction" variant="contained" color="secondary" type="submit">
           Add new transaction
         </Button>
       </form>
