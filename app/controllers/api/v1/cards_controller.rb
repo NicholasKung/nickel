@@ -1,3 +1,5 @@
+require "#{Rails.root}/app/services/twilio_client.rb"
+
 class Api::V1::CardsController < ApplicationController
   before_action :authenticate_user!, only: [:index, :show, :create, :update, :destroy]
   protect_from_forgery unless: -> { request.format.json? }
