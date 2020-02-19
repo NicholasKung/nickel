@@ -15,11 +15,11 @@ const ChartPerCategory = (props) => {
         ['Food', props.chartData.food,'#66B5E0'],
         ['Vehicle', props.chartData.vehicle, '#FFD5AD'],
         ['Home', props.chartData.home, '#B294FF'],
-        ['Other', props.chartData.other, '#FAB189'],
+        ['Other', props.chartData.other, '#EB585A'],
       ]}
       options={{
         title: 'Number of transactions per category',
-        backgroundColor: '#B8E0FF',
+        backgroundColor: 'white',
         chartArea: { width: '50%' },
         tooltip: {
           textStyle: {
@@ -71,11 +71,9 @@ const ChartPerCategory = (props) => {
       animation: {
         duration: 2000,
         startup: true,
-        easing:'inAndOut'
+        easing:'out'
       }
     }}
-      // For tests
-      rootProps={{ 'data-testid': '1' }}
       />
     </div>
   )
