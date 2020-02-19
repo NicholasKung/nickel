@@ -66,7 +66,7 @@ const CardShowContainer = (props) => {
     })
       .then(response => response.json())
       .then(body => {
-        setRedirect(true)
+        window.location.reload()
       })
       .catch(error => console.error(`Error in fetch: ${error.message}`));
   }
@@ -119,7 +119,7 @@ const CardShowContainer = (props) => {
     })
     .then(response => response.json())
     .then(body => {
-      setRedirect(true)
+      window.location.reload()
     })
     .catch(error => console.error(`Error in fetch: ${error.message}`));
   }
