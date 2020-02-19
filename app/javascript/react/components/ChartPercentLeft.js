@@ -18,7 +18,7 @@ const ChartPercentLeft = (props) => {
         ]}
         options={{
           title: 'Percent Left',
-          backgroundColor : '#B8E0FF',
+          backgroundColor : 'white',
 
           tooltip: {
             textStyle: {
@@ -72,7 +72,7 @@ const ChartPercentLeft = (props) => {
           fontSize: '15',
           color: 'black'
         },
-        slices: [{color: '#66B5E0'}, {color: '#FFD5AD'}, {color: '#B294FF'}, {color: '#FAB189'}],
+        slices: [{color: 'EB585A'}, {color: '4FB876'}],
         pieSliceBorderColor: {
           color: 'black'
         }
