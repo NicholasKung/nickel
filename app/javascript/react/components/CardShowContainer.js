@@ -135,6 +135,16 @@ const CardShowContainer = (props) => {
     )
   })
 
+  const handleDeleteAll = (event) => {
+    event.preventDefault()
+    transactions.forEach((transaction)=> {
+      if(transaction.card_id == cardId) {
+        deleteTransaction(transaction.id)
+      }
+    })
+
+  }
+
   let categoryHash = {
     food:0,
     vehicle:0,
@@ -235,6 +245,9 @@ const CardShowContainer = (props) => {
             <h4>Description || Category || Amount</h4>
           </div>
           {transactionTiles}
+          <Button variant="contained" color="primary" type="submit" onClick={handleDeleteAll}>
+            Credit Card Paid (Will delete all transactions)
+          </Button>
         </div>
     </div>
     <Footer
