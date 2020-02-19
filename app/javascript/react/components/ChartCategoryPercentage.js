@@ -20,7 +20,7 @@ const ChartCategoryPercentage = (props) => {
         ]}
         options={{
           title: 'Expense Categories',
-          backgroundColor : '#B8E0FF',
+          backgroundColor : 'white',
 
           tooltip: {
             textStyle: {
@@ -74,7 +74,7 @@ const ChartCategoryPercentage = (props) => {
           fontSize: '15',
           color: 'black'
         },
-        slices: [{color: '#66B5E0'}, {color: '#FFD5AD'}, {color: '#B294FF'}, {color: '#FAB189'}],
+        slices: [{color: '66B5E0'}, {color: '#FFD5AD'}, {color: '#B294FF'}, {color: '#EB585A'}],
         pieSliceBorderColor: {
           color: 'black'
         }
