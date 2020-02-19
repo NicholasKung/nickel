@@ -148,7 +148,6 @@ RSpec.describe Api::V1::CardsController, type: :controller do
       patch :update, params: new_card, format: :json
       response_body = JSON.parse(response.body)
 
-
       expect(response_body["number"]).to eq "1234"
       expect(response_body["limit"]).to eq 1000
       expect(response_body["fee"]).to eq 1500
