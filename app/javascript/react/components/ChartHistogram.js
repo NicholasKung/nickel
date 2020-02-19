@@ -17,7 +17,7 @@ const ChartHistogram = (props) => {
   data={initialArray}
   options={{
     title: 'Amount spent per transaction',
-    backgroundColor: '#B8E0FF',
+    backgroundColor: 'white',
     colors: ['#3F50B5'],
     legend: { position: 'none' },
     tooltip: {
@@ -63,6 +63,11 @@ const ChartHistogram = (props) => {
     fontSize: '20',
     bold: false,
     italic: false,
+  },
+  animation: {
+    duration: 2000,
+    startup: true,
+    easing:'out'
   },
   }}
   rootProps={{ 'data-testid': '1' }}
