@@ -24,7 +24,7 @@ const ChartHistogram = (props) => {
       textStyle: {
         color:'black',
         fontSize:'13',
-        fontName:'Vollkorn',
+        fontName:'Open Sans',
       }
     },
     hAxis: {
@@ -32,13 +32,13 @@ const ChartHistogram = (props) => {
       minValue: 0,
       textStyle: {
         color: 'black',
-        fontName: 'Vollkorn',
+        fontName: 'Open Sans',
         fontSize: '12',
         italic: false
       },
       titleTextStyle: {
         color: 'black',
-        fontName: 'Vollkorn',
+        fontName: 'Open Sans',
         fontSize: '20',
       },
     },
@@ -46,20 +46,20 @@ const ChartHistogram = (props) => {
       title: 'Frequency',
       titleTextStyle: {
         color: 'black',
-        fontName: 'Vollkorn',
+        fontName: 'Open Sans',
         fontSize: '20',
         italic: false
       },
       textStyle: {
         color: 'black',
-        fontName: 'Vollkorn',
+        fontName: 'Open Sans',
         fontSize: '20',
         italic: false
       },
     },
     titleTextStyle: {
     color: 'black',
-    fontName: 'Vollkorn',
+    fontName: 'Open Sans',
     fontSize: '20',
     bold: false,
     italic: false,
