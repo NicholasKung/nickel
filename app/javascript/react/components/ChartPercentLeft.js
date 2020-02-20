@@ -24,14 +24,14 @@ const ChartPercentLeft = (props) => {
             textStyle: {
               color:'black',
               fontSize:'13',
-              fontName:'Vollkorn',
+              fontName:'Open Sans',
             }
           },
           legend: {
             textStyle: {
               color:'black',
               fontSize:'16',
-              fontName:'Vollkorn',
+              fontName:'Open Sans',
             }
           },
           hAxis: {
@@ -39,12 +39,12 @@ const ChartPercentLeft = (props) => {
             minValue: 0,
             textStyle: {
               color: 'black',
-              fontName: 'Vollkorn',
+              fontName: 'Open Sans',
               fontSize: '12',
             },
             titleTextStyle: {
               color: 'black',
-              fontName: 'Vollkorn',
+              fontName: 'Open Sans',
               fontSize: '20',
             },
           },
@@ -52,23 +52,23 @@ const ChartPercentLeft = (props) => {
             title: 'Category',
             titleTextStyle: {
               color: 'black',
-              fontName: 'Vollkorn',
+              fontName: 'Open Sans',
               fontSize: '20'
             },
             textStyle: {
               color: 'black',
-              fontName: 'Vollkorn',
+              fontName: 'Open Sans',
               fontSize: '20',
             },
           },
           titleTextStyle: {
           color: 'black',
-          fontName: 'Vollkorn',
+          fontName: 'Open Sans',
           fontSize: '20',
           bold: false,
         },
         pieSliceTextStyle: {
-          fontName: 'Vollkorn',
+          fontName: 'Open Sans',
           fontSize: '15',
           color: 'black'
         },
