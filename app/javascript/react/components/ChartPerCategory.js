@@ -25,7 +25,7 @@ const ChartPerCategory = (props) => {
           textStyle: {
             color:'black',
             fontSize:'13',
-            fontName:'Vollkorn',
+            fontName:'Open Sans',
           }
         },
         legend: {
@@ -36,13 +36,13 @@ const ChartPerCategory = (props) => {
           minValue: 0,
           textStyle: {
             color: 'black',
-            fontName: 'Vollkorn',
+            fontName: 'Open Sans',
             fontSize: '12',
             italic: false
           },
           titleTextStyle: {
             color: 'black',
-            fontName: 'Vollkorn',
+            fontName: 'Open Sans',
             fontSize: '20',
           },
         },
@@ -50,20 +50,20 @@ const ChartPerCategory = (props) => {
           title: 'Category',
           titleTextStyle: {
             color: 'black',
-            fontName: 'Vollkorn',
+            fontName: 'Open Sans',
             fontSize: '20',
             italic: false
           },
           textStyle: {
             color: 'black',
-            fontName: 'Vollkorn',
+            fontName: 'Open Sans',
             fontSize: '20',
             italic: false
           },
         },
         titleTextStyle: {
         color: 'black',
-        fontName: 'Vollkorn',
+        fontName: 'Open Sans',
         fontSize: '20',
         bold: false,
         italic: false,
