@@ -3,7 +3,7 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6, p {
-  font-family: 'Vollkorn', serif;
+  font-family: 'Open Sans', sans-serif;
   text-align: center;
 }
 
@@ -12,7 +12,7 @@ h1, h2, h3, h4, h5, h6, p {
 }
 
 .field, .actions {
-  font-family: 'Vollkorn', serif;
+  font-family: 'Open Sans', sans-serif;
   width:40%;
   display:block;
   margin:auto;
@@ -37,6 +37,11 @@ h1, h2, h3, h4, h5, h6, p {
   padding: 5px;
   background-color: #FFE3B8;
   box-shadow: 10px 5px 5px grey;
+  transition: transform .2s;
+}
+
+.card-tile-index:hover {
+  transform: scale(1.05);
 }
 
 .transaction-tile {
@@ -47,6 +52,11 @@ h1, h2, h3, h4, h5, h6, p {
   padding: 5px;
   width: 100%;
   box-shadow: 10px 5px 5px grey;
+  transition: transform .2s;
+}
+
+.transaction-tile:hover {
+  transform: scale(1.05);
 }
 
 .transaction-side {
@@ -130,7 +140,7 @@ img {
 }
 
 .sign {
-  font-family: 'Vollkorn', serif;
+  font-family: 'Open Sans', sans-serif;
 }
 
 .welcome-image {
