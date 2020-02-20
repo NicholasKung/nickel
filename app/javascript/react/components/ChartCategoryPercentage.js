@@ -7,7 +7,7 @@ const ChartCategoryPercentage = (props) => {
     <div style={{ display: 'flex', maxWidth: 900 }}>
       <Chart
         className = "percentage-pie-chart"
-        width={'390px'}
+        width={'395px'}
         height={'300px'}
         chartType="PieChart"
         loader={<div>Loading Chart</div>}
@@ -20,20 +20,20 @@ const ChartCategoryPercentage = (props) => {
         ]}
         options={{
           title: 'Expense Categories',
-          backgroundColor : '#B8E0FF',
+          backgroundColor : 'white',
 
           tooltip: {
             textStyle: {
               color:'black',
               fontSize:'13',
-              fontName:'Vollkorn',
+              fontName:'Open Sans',
             }
           },
           legend: {
             textStyle: {
               color:'black',
               fontSize:'16',
-              fontName:'Vollkorn',
+              fontName:'Open Sans',
             }
           },
           hAxis: {
@@ -41,12 +41,12 @@ const ChartCategoryPercentage = (props) => {
             minValue: 0,
             textStyle: {
               color: 'black',
-              fontName: 'Vollkorn',
+              fontName: 'Open Sans',
               fontSize: '12',
             },
             titleTextStyle: {
               color: 'black',
-              fontName: 'Vollkorn',
+              fontName: 'Open Sans',
               fontSize: '20',
             },
           },
@@ -54,27 +54,27 @@ const ChartCategoryPercentage = (props) => {
             title: 'Category',
             titleTextStyle: {
               color: 'black',
-              fontName: 'Vollkorn',
+              fontName: 'Open Sans',
               fontSize: '20'
             },
             textStyle: {
               color: 'black',
-              fontName: 'Vollkorn',
+              fontName: 'Open Sans',
               fontSize: '20',
             },
           },
           titleTextStyle: {
           color: 'black',
-          fontName: 'Vollkorn',
+          fontName: 'Open Sans',
           fontSize: '20',
           bold: false,
         },
         pieSliceTextStyle: {
-          fontName: 'Vollkorn',
+          fontName: 'Open Sans',
           fontSize: '15',
           color: 'black'
         },
-        slices: [{color: '#66B5E0'}, {color: '#FFD5AD'}, {color: '#B294FF'}, {color: '#FAB189'}],
+        slices: [{color: '66B5E0'}, {color: '#FFD5AD'}, {color: '#B294FF'}, {color: '#EB585A'}],
         pieSliceBorderColor: {
           color: 'black'
         }

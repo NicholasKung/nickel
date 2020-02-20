@@ -66,7 +66,7 @@ const CardShowContainer = (props) => {
     })
       .then(response => response.json())
       .then(body => {
-        window.location.reload()
+        setRedirect(true)
       })
       .catch(error => console.error(`Error in fetch: ${error.message}`));
   }
@@ -167,7 +167,6 @@ const CardShowContainer = (props) => {
   }
 )
 
-
   const transactionChartData = transactions.forEach((transaction) => {
       if (transaction.category === "Food") {
         categoryHash.food += transaction.amount
@@ -215,9 +214,9 @@ const CardShowContainer = (props) => {
           />
         </div>
         <div className = 'columns medium-8 chart-side'>
-          <h3>Spending Report</h3>
-            <div className = 'row'>
-              <div className = 'columns medium-6'>
+          <h3 className = "chart">Spending Report</h3>
+            <div className = 'chart row'>
+              <div className = 'chart columns medium-6'>
                 <ChartCategoryPercentage
                   chartData = {categoryHash}
                 />
@@ -245,7 +244,9 @@ const CardShowContainer = (props) => {
             <h4>Description || Category || Amount</h4>
           </div>
           {transactionTiles}
-          <Button variant="contained" color="primary" type="submit" onClick={handleDeleteAll}>
+        </div>
+        <div className = "button-delete-all">
+          <Button className = {classes.margin} variant="contained" color="secondary" type="submit" onClick={handleDeleteAll}>
             Credit Card Paid (Will delete all transactions)
           </Button>
         </div>

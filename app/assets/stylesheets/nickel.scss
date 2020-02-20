@@ -1,14 +1,18 @@
 body {
-  background-color: #B8E0FF
+  background-color: 'white'
 }
 
 h1, h2, h3, h4, h5, h6, p {
-  font-family: 'Vollkorn', serif;
+  font-family: 'Open Sans', sans-serif;
   text-align: center;
 }
 
+.top-bar {
+  background-color: 'white';
+}
+
 .field, .actions {
-  font-family: 'Vollkorn', serif;
+  font-family: 'Open Sans', sans-serif;
   width:40%;
   display:block;
   margin:auto;
@@ -33,6 +37,11 @@ h1, h2, h3, h4, h5, h6, p {
   padding: 5px;
   background-color: #FFE3B8;
   box-shadow: 10px 5px 5px grey;
+  transition: transform .2s;
+}
+
+.card-tile-index:hover {
+  transform: scale(1.05);
 }
 
 .transaction-tile {
@@ -43,6 +52,11 @@ h1, h2, h3, h4, h5, h6, p {
   padding: 5px;
   width: 100%;
   box-shadow: 10px 5px 5px grey;
+  transition: transform .2s;
+}
+
+.transaction-tile:hover {
+  transform: scale(1.05);
 }
 
 .transaction-side {
@@ -51,7 +65,7 @@ h1, h2, h3, h4, h5, h6, p {
   margin: 10px auto;
   width: 50%;
   box-shadow: 10px 5px 5px grey;
-  background-color: #B8E0FF;
+  background-color: '#B8E0FF';
 }
 .chart-side {
   border: 5px solid black;
@@ -61,6 +75,10 @@ h1, h2, h3, h4, h5, h6, p {
   display: block;
   padding: 5px;
   box-shadow: 10px 5px 5px grey;
+}
+
+.chart {
+  background-color: 'white';
 }
 
 .nickel-title {
@@ -90,21 +108,22 @@ form {
 .button-transaction {
   margin: auto;
   display: block;
-  align-items: center;
 }
 
 .button-delete {
   float: right;
 }
 
-.edelete-button {
-  margin: 5px;
-}
-
 .add-button {
   display: block;
   margin: auto;
   width: 300px;
+}
+
+.button-delete-all {
+  display: block;
+  margin: auto;
+  width: 430px;
 }
 
 .form-button {
@@ -121,7 +140,7 @@ img {
 }
 
 .sign {
-  font-family: 'Vollkorn', serif;
+  font-family: 'Open Sans', sans-serif;
 }
 
 .welcome-image {

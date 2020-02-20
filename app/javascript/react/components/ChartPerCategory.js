@@ -15,17 +15,17 @@ const ChartPerCategory = (props) => {
         ['Food', props.chartData.food,'#66B5E0'],
         ['Vehicle', props.chartData.vehicle, '#FFD5AD'],
         ['Home', props.chartData.home, '#B294FF'],
-        ['Other', props.chartData.other, '#FAB189'],
+        ['Other', props.chartData.other, '#EB585A'],
       ]}
       options={{
         title: 'Number of transactions per category',
-        backgroundColor: '#B8E0FF',
+        backgroundColor: 'white',
         chartArea: { width: '50%' },
         tooltip: {
           textStyle: {
             color:'black',
             fontSize:'13',
-            fontName:'Vollkorn',
+            fontName:'Open Sans',
           }
         },
         legend: {
@@ -36,13 +36,13 @@ const ChartPerCategory = (props) => {
           minValue: 0,
           textStyle: {
             color: 'black',
-            fontName: 'Vollkorn',
+            fontName: 'Open Sans',
             fontSize: '12',
             italic: false
           },
           titleTextStyle: {
             color: 'black',
-            fontName: 'Vollkorn',
+            fontName: 'Open Sans',
             fontSize: '20',
           },
         },
@@ -50,20 +50,20 @@ const ChartPerCategory = (props) => {
           title: 'Category',
           titleTextStyle: {
             color: 'black',
-            fontName: 'Vollkorn',
+            fontName: 'Open Sans',
             fontSize: '20',
             italic: false
           },
           textStyle: {
             color: 'black',
-            fontName: 'Vollkorn',
+            fontName: 'Open Sans',
             fontSize: '20',
             italic: false
           },
         },
         titleTextStyle: {
         color: 'black',
-        fontName: 'Vollkorn',
+        fontName: 'Open Sans',
         fontSize: '20',
         bold: false,
         italic: false,
@@ -71,11 +71,9 @@ const ChartPerCategory = (props) => {
       animation: {
         duration: 2000,
         startup: true,
-        easing:'inAndOut'
+        easing:'out'
       }
     }}
-      // For tests
-      rootProps={{ 'data-testid': '1' }}
       />
     </div>
   )
