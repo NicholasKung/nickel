@@ -6,6 +6,7 @@ const ChartPerCategory = (props) => {
   return(
     <div style={{ display: 'flex', maxWidth: 900 }}>
     <Chart
+      className = "barchart"
       width={'700px'}
       height={'300px'}
       chartType="BarChart"
@@ -19,7 +20,7 @@ const ChartPerCategory = (props) => {
       ]}
       options={{
         title: 'Number of transactions per category',
-        backgroundColor: 'white',
+        backgroundColor: 'transparent',
         chartArea: { width: '50%' },
         tooltip: {
           textStyle: {
