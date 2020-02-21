@@ -11,6 +11,10 @@ import ChartPerCategory from './ChartPerCategory'
 import ChartPercentLeft from './ChartPercentLeft'
 import ChartHistogram from './ChartHistogram'
 import Tooltip from '@material-ui/core/Tooltip';
+import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/Toolbar';
+import Typography from '@material-ui/core/Typography';
+
 
 
 const useStyles = makeStyles(theme => ({
@@ -144,7 +148,6 @@ const CardShowContainer = (props) => {
         deleteTransaction(transaction.id)
       }
     })
-
   }
 
   let categoryHash = {
@@ -200,9 +203,20 @@ const CardShowContainer = (props) => {
     return <Redirect to={"/cards"} />
   }
 
+  const barPhrase = () => {
+    return `${card.name} Summary`
+  }
+
   return(
     <div>
-      <div className = "add-button">
+      <AppBar color = "primary" position= "relative">
+        <Toolbar>
+          <Typography variant= "h6" color= "inherit" noWrap>
+          {barPhrase()}
+          </Typography>
+        </Toolbar>
+      </AppBar>
+      <div className = "button-add">
         <Button className = {classes.margin} variant="contained" color="primary" type="submit" href={`/cards`}>
           Back to List of Credit Cards
         </Button>
@@ -240,14 +254,10 @@ const CardShowContainer = (props) => {
           </div>
           <div className = 'row'>
             <div className = "columns medium-12">
-              <h4>Transactions on this card</h4>
+              <h4>Transactions on {card.name}</h4>
               <h3>Credit Remaining: ${remainingBalance(card.limit)}</h3>
-              <div>
-                <h4>Description || Category || Amount</h4>
-              </div>
               {transactionTiles}
             </div>
-
             <div className = "button-delete-all">
               <Tooltip title="Warning - Will Delete All Transactions" placement="top">
                 <Button className = 'button-delete-all' variant="contained" color="secondary" type="submit" onClick={handleDeleteAll}>
