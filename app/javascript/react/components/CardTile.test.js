@@ -42,7 +42,7 @@ describe("CardTile", () => {
    expect(wrapper.find(Link).props().to).toBe("/cards/1")
  })
 
-  it("should render a h1 tag containing the text received via props", () =>{
-    expect(wrapper.find('h1').text()).toBe("Test Credit Card")
+  it("should render a h2 tag containing the text received via props", () =>{
+    expect(wrapper.find('h2').text()).toBe("Test Credit Card")
   });
 })
