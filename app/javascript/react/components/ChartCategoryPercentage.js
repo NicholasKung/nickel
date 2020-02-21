@@ -6,7 +6,6 @@ const ChartCategoryPercentage = (props) => {
   return(
     <div style={{ display: 'flex', maxWidth: 900 }}>
       <Chart
-        className = "percentage-pie-chart"
         width={'395px'}
         height={'300px'}
         chartType="PieChart"
@@ -20,7 +19,7 @@ const ChartCategoryPercentage = (props) => {
         ]}
         options={{
           title: 'Expense Categories',
-          backgroundColor : '#FFE3B8',
+          backgroundColor : 'transparent',
 
           tooltip: {
             textStyle: {
@@ -74,7 +73,7 @@ const ChartCategoryPercentage = (props) => {
           fontSize: '15',
           color: 'black'
         },
-        slices: [{color: '66B5E0'}, {color: '#FFD5AD'}, {color: '#B294FF'}, {color: '#EB585A'}],
+        slices: [{color: '66B5E0'}, {color: '#4FB876'}, {color: '#B294FF'}, {color: '#EB585A'}],
         pieSliceBorderColor: {
           color: 'black'
         }

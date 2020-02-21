@@ -37,8 +37,8 @@ describe("CardShow", () => {
        src: "https://www.mastercard.us/en-us/consumers/find-card-products/credit-cards/mastercard/_jcr_content/contentpar/herolight_1/image.adaptive.319.low.jpg/1487872342914.jpg"})
   });
 
-  it("should render a p tag containing the text received via props", () =>{
-     expect(wrapper.find('p').text()).toBe("Expiration Date: August 2024 Limit: $3000 Annual Fee: $100")
+  it("should render a ul tag containing the text received via props", () =>{
+     expect(wrapper.find('ul').text()).toBe("Expiration Date: August 2024Limit: $3000Annual Fee: $100")
   });
 
   it("should render a h3 tag containing the text received via props", () =>{

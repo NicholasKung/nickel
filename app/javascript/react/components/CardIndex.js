@@ -52,22 +52,22 @@ const CardIndex = (props) => {
 
   return(
     <div>
-        <AppBar color = "primary" position= "relative">
-          <Toolbar>
-            <Typography variant= "h6" color= "inherit" noWrap>
-              {barPhrase()}
-            </Typography>
-          </Toolbar>
-        </AppBar>
+      <AppBar color = "primary" position= "relative">
+        <Toolbar>
+          <Typography variant= "h6" color= "inherit" noWrap>
+            {barPhrase()}
+          </Typography>
+        </Toolbar>
+      </AppBar>
       <div className = "row">
         {cardTiles}
       </div>
-      <div className = "add-button" >
+      <div className = "button-add" >
         <Button
           href={`/cards/new`}
           variant="contained"
           color="primary"
-          className = "add-button"
+          className = "button-add"
           >
             Add a New Credit Card
         </Button>

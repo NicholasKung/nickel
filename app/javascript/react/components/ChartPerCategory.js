@@ -14,7 +14,7 @@ const ChartPerCategory = (props) => {
       data={[
         ['City', 'Number of transactions', { role: 'style'}],
         ['Food', props.chartData.food,'#66B5E0'],
-        ['Vehicle', props.chartData.vehicle, '#FFD5AD'],
+        ['Vehicle', props.chartData.vehicle, '#4FB876'],
         ['Home', props.chartData.home, '#B294FF'],
         ['Other', props.chartData.other, '#EB585A'],
       ]}

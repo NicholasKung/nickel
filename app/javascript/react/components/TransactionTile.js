@@ -12,9 +12,24 @@ const handleDelete = (event) => {
   props.deleteTransaction(props.transactionData.id)
 }
 
+const tileColor = () => {
+  if (props.transactionData.category === "Food") {
+    return "transaction-tile food"
+  }
+  else if (props.transactionData.category === "Vehicle") {
+    return "transaction-tile vehicle"
+  }
+  else if (props.transactionData.category === "Home") {
+    return "transaction-tile home"
+  }
+  else {
+    return "transaction-tile other"
+  }
+}
+
   return(
     <div className = "columns medium-4">
-      <div className = "transaction-tile">
+      <div className = {tileColor()}>
         <div>
           <h3>{props.transactionData.name}</h3>
           <h4>${props.transactionData.amount}</h4>

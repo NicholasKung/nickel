@@ -60,7 +60,7 @@ const NewTransactionForm = (props) => {
   }
 
   return(
-    <div className = 'transaction'>
+    <div>
       <form className={classes.root} onSubmit={handleSubmit}>
         <TextField
           id="name"
