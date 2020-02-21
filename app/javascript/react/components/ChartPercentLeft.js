@@ -18,8 +18,7 @@ const ChartPercentLeft = (props) => {
         ]}
         options={{
           title: 'Percent Left',
-          backgroundColor : 'white',
-
+          backgroundColor: '#FFE3B8',
           tooltip: {
             textStyle: {
               color:'black',
