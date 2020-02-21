@@ -5,8 +5,8 @@ describe Transaction do
   it { should belong_to :user}
   it { should belong_to :card}
 
-  it {should have_valid(:name).when("Anything") }
-  it {should_not have_valid(:name).when(nil, "") }
+  it {should have_valid(:name).when("Anything short") }
+  it {should_not have_valid(:name).when(nil, "", "too long of an answer") }
 
   it {should have_valid(:amount).when(100) }
   it {should_not have_valid(:amount).when(nil, "", "Hi") }
