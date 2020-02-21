@@ -17,7 +17,12 @@ const CardShow = (props) => {
           <h1>{props.cardData.name}</h1>
           <img src = {props.cardData.image}/>
           <h3>{props.cardData.description}</h3>
-          <p>Expiration Date: {props.cardData.date} Limit: ${props.cardData.limit} Annual Fee: ${props.cardData.fee}</p>
+          <ul className = "list">
+            <li>Expiration Date: {props.cardData.date}</li>
+            <li>Limit: ${props.cardData.limit}</li>
+            <li>Annual Fee: ${props.cardData.fee}</li>
+          </ul>
+
           <Button variant="contained" color="primary" type="submit" onClick={handleDelete}>
             Delete Card
           </Button>
