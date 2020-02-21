@@ -10,6 +10,8 @@ import ChartCategoryPercentage from './ChartCategoryPercentage'
 import ChartPerCategory from './ChartPerCategory'
 import ChartPercentLeft from './ChartPercentLeft'
 import ChartHistogram from './ChartHistogram'
+import Tooltip from '@material-ui/core/Tooltip';
+
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -189,7 +191,7 @@ const CardShowContainer = (props) => {
         num = num - transactions[i].amount
       }
       else
-        return "You are broke by"
+        return "Beyond your credit limit!"
     }
     return num
   }
@@ -206,51 +208,55 @@ const CardShowContainer = (props) => {
         </Button>
       </div>
 
-        <div className = "columns medium-4">
-          <CardShow
-            cardData={card}
-            deleteCard={deleteCard}
-            submitNewTransaction = {submitNewTransaction}
-          />
-        </div>
-        <div className = 'columns medium-8 chart-side'>
-          <h3 className = "chart">Spending Report</h3>
-            <div className = 'chart row'>
-              <div className = 'chart columns medium-6'>
-                <ChartCategoryPercentage
-                  chartData = {categoryHash}
-                />
-              </div>
-              <div className = 'columns medium-6'>
-                <ChartPercentLeft
-                  card = {card}
-                  left = {remainingBalance(card.limit)}
-                />
-              </div>
-            </div>
-          <ChartPerCategory
-            chartData = {typeHash}
-          />
-          <ChartHistogram
-            chartData = {transactionHistogramData}
-          />
-        </div>
-
-      <div className = 'row'>
-        <div className = "columns medium-12">
-          <h4>Transactions on this card</h4>
-          <h3>Credit Remaining:${remainingBalance(card.limit)}</h3>
-          <div>
-            <h4>Description || Category || Amount</h4>
+      <div className = 'rows'>
+          <div className = "columns medium-4">
+            <CardShow
+              cardData={card}
+              deleteCard={deleteCard}
+              submitNewTransaction = {submitNewTransaction}
+            />
           </div>
-          {transactionTiles}
+          <div className = 'columns medium-8 chart-side'>
+            <h3 className = "chart">Spending Report</h3>
+              <div className = 'chart row'>
+                <div className = 'chart columns medium-6'>
+                  <ChartCategoryPercentage
+                    chartData = {categoryHash}
+                  />
+                </div>
+                <div className = 'columns medium-6'>
+                  <ChartPercentLeft
+                    card = {card}
+                    left = {remainingBalance(card.limit)}
+                  />
+                </div>
+              </div>
+            <ChartPerCategory
+              chartData = {typeHash}
+            />
+            <ChartHistogram
+              chartData = {transactionHistogramData}
+            />
+          </div>
+          <div className = 'row'>
+            <div className = "columns medium-12">
+              <h4>Transactions on this card</h4>
+              <h3>Credit Remaining: ${remainingBalance(card.limit)}</h3>
+              <div>
+                <h4>Description || Category || Amount</h4>
+              </div>
+              {transactionTiles}
+            </div>
+
+            <div className = "button-delete-all">
+              <Tooltip title="Warning - Will Delete All Transactions" placement="top">
+                <Button className = 'button-delete-all' variant="contained" color="secondary" type="submit" onClick={handleDeleteAll}>
+                  Credit Card Paid
+                </Button>
+              </Tooltip>
+            </div>
+          </div>
         </div>
-        <div className = "button-delete-all">
-          <Button className = {classes.margin} variant="contained" color="secondary" type="submit" onClick={handleDeleteAll}>
-            Credit Card Paid (Will delete all transactions)
-          </Button>
-        </div>
-    </div>
     <Footer
     />
   </div>
