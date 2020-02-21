@@ -166,8 +166,8 @@ const NewCardForm = (props) => {
           onChange={handleChange}
         />
         </div>
-        <div className = 'add-button'>
-          <Button className = "add-button" variant="contained" color="secondary" type="submit">
+        <div className = 'button-add'>
+          <Button className = "button-add" variant="contained" color="secondary" type="submit">
             Add new card
           </Button>
         </div>
