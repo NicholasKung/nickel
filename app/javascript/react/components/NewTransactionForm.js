@@ -61,8 +61,7 @@ const NewTransactionForm = (props) => {
 
   return(
     <div className = 'transaction'>
-      <form className={classes.root} onSubmit={handleSubmit} noValidate autoComplete="off">
-        <h4>Add a new transaction</h4>
+      <form className={classes.root} onSubmit={handleSubmit}>
         <TextField
           id="name"
           name="name"
@@ -87,7 +86,6 @@ const NewTransactionForm = (props) => {
             </MenuItem>
           ))}
         </TextField>
-
 
         <TextField
           id="amount"

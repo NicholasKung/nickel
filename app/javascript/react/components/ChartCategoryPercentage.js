@@ -20,7 +20,7 @@ const ChartCategoryPercentage = (props) => {
         ]}
         options={{
           title: 'Expense Categories',
-          backgroundColor : 'white',
+          backgroundColor : '#FFE3B8',
 
           tooltip: {
             textStyle: {

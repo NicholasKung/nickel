@@ -12,10 +12,10 @@ const CardShow = (props) => {
 
   return(
     <div>
-      <div className = "columns medium-12 card-tile">
-        <div className = "rows">
+      <div className = 'rows'>
+        <div className = "columns medium-12 card-tile">
           <h1>{props.cardData.name}</h1>
-          <img src = {props.cardData.image} />
+          <img src = {props.cardData.image}/>
           <h3>{props.cardData.description}</h3>
           <p>Expiration Date: {props.cardData.date} Limit: ${props.cardData.limit} Annual Fee: ${props.cardData.fee}</p>
           <Button variant="contained" color="primary" type="submit" onClick={handleDelete}>
@@ -25,10 +25,13 @@ const CardShow = (props) => {
             Edit Card
           </Button>
         </div>
-        <div className = 'rows'>
-          <NewTransactionForm
-            onSubmit = {props.submitNewTransaction}
-          />
+        <div className = "columns medium-12 card-tile">
+          <div className = 'rows'>
+            <h4>Add a new transaction</h4>
+            <NewTransactionForm
+              onSubmit = {props.submitNewTransaction}
+            />
+          </div>
         </div>
       </div>
     </div>

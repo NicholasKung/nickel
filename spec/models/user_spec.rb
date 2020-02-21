@@ -15,4 +15,7 @@ describe User do
 
   it { should have_valid(:last_name).when("Kung") }
   it { should_not have_valid(:last_name).when(nil, "") }
+
+  it { should have_valid(:phone).when("19148197129") }
+  it { should_not have_valid(:phone).when(nil, "") }
 end

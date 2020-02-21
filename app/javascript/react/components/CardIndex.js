@@ -59,7 +59,9 @@ const CardIndex = (props) => {
             </Typography>
           </Toolbar>
         </AppBar>
-      {cardTiles}
+      <div className = "row">
+        {cardTiles}
+      </div>
       <div className = "add-button" >
         <Button
           href={`/cards/new`}
