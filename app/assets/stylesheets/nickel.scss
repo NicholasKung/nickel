@@ -7,10 +7,6 @@ h1, h2, h3, h4, h5, h6, p {
   text-align: center;
 }
 
-.top-bar {
-  background-color: 'white';
-}
-
 .field, .actions {
   font-family: 'Open Sans', sans-serif;
   width:40%;
@@ -18,57 +14,15 @@ h1, h2, h3, h4, h5, h6, p {
   margin:auto;
 }
 
-.card-tile {
-  text-align: center;
-  margin: 10px auto;
-  border-radius: 10px;
-  width: 100%;
-  padding: 5px;
-  background-color: #FFE3B8;
-  box-shadow: 5px 5px 5px grey;
-}
-
-.card-tile-index {
-  text-align: center;
-  margin: 10px 10px;
-  border-radius: 10px;
-  width: 30%;
-  padding: 5px;
-  background-color: #FFE3B8;
-  box-shadow: 5px 5px 5px grey;
-  transition: transform .2s;
-}
-
-.card-tile-index:hover {
-  transform: scale(1.05);
-}
-
-.transaction-tile {
-  text-align: center;
-  margin: 10px auto;
-  border: 1px solid grey;
-  border-radius: 10px;
-  padding: 5px;
-  width: 100%;
-  box-shadow: 5px 5px 5px grey;
-  transition: transform .2s;
-  background-color: 'black';
-}
-
-.transaction-tile:hover {
-  transform: scale(1.05);
-}
-
 .transaction-side {
-  // border: 5px solid black;
   border-radius: 10px;
   margin: 10px auto;
   width: 50%;
   box-shadow: 10px 5px 5px grey;
-  background-color: '#B8E0FF';
+  background-color: #B8E0FF;
 }
+
 .chart-side {
-  // border: 5px solid black;
   border-radius: 10px;
   margin: 10px auto;
   width: 65%;
@@ -84,9 +38,10 @@ h1, h2, h3, h4, h5, h6, p {
   color: #3F50B5;
 }
 
-.barchart {
-  display: block;
-  margin: auto;
+.img-credit {
+  height:200px;
+  width:310px;
+  margin-bottom: 10px;
 }
 
 form {
@@ -95,50 +50,6 @@ form {
   background-color: #FFEDD1;
   border-radius: 5px;
   padding: 10px;
-}
-
-.percentage-pie-chart {
-  background-color: black;
-}
-
-.button {
-  display: block;
-  margin: auto;
-  width: 20%
-}
-
-.button-transaction {
-  margin: auto;
-  display: block;
-}
-
-.button-delete {
-  float: right;
-}
-
-.add-button {
-  display: block;
-  margin: 20px auto;
-  width: 300px;
-}
-
-.button-delete-all {
-  display: block;
-  margin: 20px auto;
-  width: 300px;
-}
-
-.form-button {
-  margin: 0 auto;
-}
-
-img {
-  margin-bottom: 10px;
-}
-
-.img-credit {
-  height:200px;
-  width:310px;
 }
 
 .sign {
@@ -151,7 +62,6 @@ img {
   margin: auto;
 }
 
-.transaction {
-  margin-top: 20px;
-  margin-bottom: 20px;
+.list {
+  list-style: none;
 }
