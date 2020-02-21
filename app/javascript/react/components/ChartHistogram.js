@@ -17,7 +17,7 @@ const ChartHistogram = (props) => {
   data={initialArray}
   options={{
     title: 'Amount spent per transaction',
-    backgroundColor: 'white',
+    backgroundColor: 'transparent',
     colors: ['#3F50B5'],
     legend: { position: 'none' },
     tooltip: {
