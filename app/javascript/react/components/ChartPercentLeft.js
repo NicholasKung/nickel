@@ -6,7 +6,6 @@ const ChartPercentLeft = (props) => {
   return(
     <div style={{ display: 'flex', maxWidth: 900 }}>
       <Chart
-        className = "percentage-pie-chart"
         width={'350px'}
         height={'300px'}
         chartType="PieChart"
@@ -18,7 +17,7 @@ const ChartPercentLeft = (props) => {
         ]}
         options={{
           title: 'Percent Left',
-          backgroundColor: '#FFE3B8',
+          backgroundColor: 'transparent',
           tooltip: {
             textStyle: {
               color:'black',
